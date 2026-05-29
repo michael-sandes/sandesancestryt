@@ -1,0 +1,9 @@
+uuid: 6872e20b-dd6b-4225-8215-6886c7ba7572
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.genealogy
+name: Event
+type: event
+description: ''

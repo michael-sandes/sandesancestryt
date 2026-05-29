@@ -1,0 +1,8 @@
+uuid: a81525a5-7676-482b-9359-de9605a4468c
+langcode: en
+status: true
+dependencies: {  }
+id: genealogy
+label: Genealogy
+description: 'Links to content and entities'
+locked: false

@@ -1,0 +1,93 @@
+uuid: daa87887-ef22-4561-8d2b-c4cddd682085
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.source.field_author
+    - field.field.node.source.field_documents
+    - field.field.node.source.field_long_name
+    - field.field.node.source.field_notes
+    - field.field.node.source.field_published
+    - field.field.node.source.field_published_year
+    - field.field.node.source.field_repository
+    - field.field.node.source.field_source_id
+    - field.field.node.source.field_url
+    - node.type.source
+    - views.view.citations
+    - views.view.images
+    - views.view.sources
+  module:
+    - layout_builder
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 67-33
+        components:
+          93d65c0a-4578-4437-affe-c4d5df354fbb:
+            uuid: 93d65c0a-4578-4437-affe-c4d5df354fbb
+            region: first
+            configuration:
+              id: 'views_block:sources-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+          91d221b3-e40d-4581-9483-74257788fe37:
+            uuid: 91d221b3-e40d-4581-9483-74257788fe37
+            region: first
+            configuration:
+              id: 'views_block:citations-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 1
+            additional: {  }
+          6e7f5129-7142-4672-a02c-015f7876a8af:
+            uuid: 6e7f5129-7142-4672-a02c-015f7876a8af
+            region: second
+            configuration:
+              id: 'views_block:images-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.source.default
+targetEntityType: node
+bundle: source
+mode: default
+content: {  }
+hidden:
+  field_author: true
+  field_documents: true
+  field_long_name: true
+  field_notes: true
+  field_published: true
+  field_published_year: true
+  field_repository: true
+  field_source_id: true
+  field_url: true
+  links: true

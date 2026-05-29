@@ -1,0 +1,72 @@
+uuid: 4f5aa068-45d4-4a07-9759-e8b6a28bd3cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.body
+    - node.type.page
+    - views.view.images
+  module:
+    - layout_builder
+    - layout_discovery
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          6d1a6108-fc29-4cd2-82c1-2f0e4cc6223f:
+            uuid: 6d1a6108-fc29-4cd2-82c1-2f0e4cc6223f
+            region: content
+            configuration:
+              id: 'field_block:node:page:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          4f80855c-1879-4e3d-b96d-96b24536054b:
+            uuid: 4f80855c-1879-4e3d-b96d-96b24536054b
+            region: content
+            configuration:
+              id: 'extra_field_block:node:page:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 3
+            additional: {  }
+          4a0fd16a-f5e8-426e-a0a9-9f1f300a634c:
+            uuid: 4a0fd16a-f5e8-426e-a0a9-9f1f300a634c
+            region: content
+            configuration:
+              id: 'views_block:images-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content: {  }
+hidden:
+  body: true
+  links: true

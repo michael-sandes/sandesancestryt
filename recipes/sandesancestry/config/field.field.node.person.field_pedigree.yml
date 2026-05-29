@@ -1,0 +1,29 @@
+uuid: 1ac007b8-8ead-43fe-b9e0-95a5192b7810
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pedigree
+    - node.type.pedigree
+    - node.type.person
+id: node.person.field_pedigree
+field_name: field_pedigree
+entity_type: node
+bundle: person
+label: Pedigree
+description: "Select the pedigree for this person.<br>\r\n<small>The Pedigree content will need to be created beforehand.</small>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      pedigree: pedigree
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

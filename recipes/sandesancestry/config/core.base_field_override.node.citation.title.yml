@@ -1,0 +1,18 @@
+uuid: f3eaa111-fbd6-4b12-b82f-8c06bae924a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.citation
+id: node.citation.title
+field_name: title
+entity_type: node
+bundle: citation
+label: 'Citation name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

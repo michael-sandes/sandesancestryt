@@ -1,0 +1,23 @@
+uuid: 4354ab82-7f7a-4444-9a97-96528997eb92
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.repositories
+  module:
+    - taxonomy
+id: repositories
+label: Repositories
+type: 'canonical_entities:taxonomy_term'
+pattern: '/[term:vocabulary]/[term:name]'
+selection_criteria:
+  5d78b2c3-bccc-469e-baa1-0858c4d49c52:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      repositories: repositories
+selection_logic: and
+weight: -5
+relationships: {  }

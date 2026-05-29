@@ -1,0 +1,8 @@
+name: 'Living Member Privacy'
+type: module
+description: 'Shows only the title of living person nodes to anonymous users, while granting full access to authenticated users.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:user

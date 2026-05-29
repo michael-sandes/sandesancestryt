@@ -1,0 +1,20 @@
+uuid: 23497c14-fadf-440e-943f-0d0700b51f17
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+id: genealogy.field_citations
+field_name: field_citations
+entity_type: genealogy
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

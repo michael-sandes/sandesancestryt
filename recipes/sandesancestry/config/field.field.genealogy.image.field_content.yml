@@ -1,0 +1,39 @@
+uuid: e1e755cd-9d92-4feb-bcd0-426efb7cfef3
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.image
+    - field.storage.genealogy.field_content
+    - node.type.citation
+    - node.type.page
+    - node.type.pedigree
+    - node.type.person
+    - node.type.place
+    - node.type.source
+id: genealogy.image.field_content
+field_name: field_content
+entity_type: genealogy
+bundle: image
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      citation: citation
+      page: page
+      pedigree: pedigree
+      person: person
+      place: place
+      source: source
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: citation
+field_type: entity_reference

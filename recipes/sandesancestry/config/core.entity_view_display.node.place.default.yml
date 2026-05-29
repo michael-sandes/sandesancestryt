@@ -1,0 +1,113 @@
+uuid: 451e12c5-de13-453e-b471-c669fe7b16cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.place.field_country
+    - field.field.node.place.field_notes
+    - field.field.node.place.field_place_description
+    - field.field.node.place.field_url
+    - node.type.place
+    - views.view.events
+    - views.view.images
+    - views.view.places
+  module:
+    - layout_builder
+    - link
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          e22206c0-f1cd-429d-9ef6-6a7f346c3409:
+            uuid: e22206c0-f1cd-429d-9ef6-6a7f346c3409
+            region: second
+            configuration:
+              id: 'views_block:images-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+          50880f01-66d9-408a-ab3a-3dfaf7773ebe:
+            uuid: 50880f01-66d9-408a-ab3a-3dfaf7773ebe
+            region: first
+            configuration:
+              id: 'views_block:places-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+          57263e3b-eefc-45c0-8274-214f5e381ae0:
+            uuid: 57263e3b-eefc-45c0-8274-214f5e381ae0
+            region: first
+            configuration:
+              id: 'views_block:events-block_3'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 1
+            additional: {  }
+          d9931fa7-0bc3-4dbf-b5aa-3a335e772c4a:
+            uuid: d9931fa7-0bc3-4dbf-b5aa-3a335e772c4a
+            region: second
+            configuration:
+              id: 'field_block:node:place:field_notes'
+              label: 'Google map'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.place.default
+targetEntityType: node
+bundle: place
+mode: default
+content:
+  field_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: first
+hidden:
+  field_country: true
+  field_notes: true
+  field_place_description: true
+  links: true

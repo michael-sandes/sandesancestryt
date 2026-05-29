@@ -1,0 +1,9 @@
+uuid: 27ab8291-d72f-4b36-853a-a1dd56c32b9c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event descriptions'
+vid: event_descriptions
+description: null
+weight: 0
+new_revision: false

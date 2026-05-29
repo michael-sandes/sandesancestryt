@@ -1,0 +1,19 @@
+uuid: 805c77b4-8d41-4f34-a8fd-6e6aec11d0c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.storage.genealogy.field_event_date
+id: genealogy.event.field_event_date
+field_name: field_event_date
+entity_type: genealogy
+bundle: event
+label: 'Event date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

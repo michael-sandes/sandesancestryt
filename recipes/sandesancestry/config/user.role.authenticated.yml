@@ -1,0 +1,22 @@
+uuid: 741562d7-0d6c-40dc-9bbf-436e642d9094
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - file
+    - filter
+    - search
+    - system
+_core:
+  default_config_hash: hcfESiA8tr3D1muRk2KF7tbcun16ZJlG1R5SzKGed6g
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'delete own files'
+  - 'search content'
+  - 'use text format basic_html'

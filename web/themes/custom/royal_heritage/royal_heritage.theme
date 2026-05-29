@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Royal Heritage theme functions and preprocess hooks.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function royal_heritage_preprocess_html(&$variables) {
+  try {
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (\Exception $e) {
+    $is_front = FALSE;
+  }
+  if ($is_front) {
+    $variables['attributes']['class'][] = 'is-front';
+  }
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $variables['attributes']['class'][] = 'user-logged-in';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function royal_heritage_preprocess_page(&$variables) {
+  // Note: site_name and site_slogan are provided by Drupal core's
+  // template_preprocess_page() and come from the System Branding block.
+  // No need to re-declare them here.
+  //
+  // Page titles are handled entirely by the page_title_block placed in the
+  // content region — it resolves the correct title for every route type
+  // (nodes, views, taxonomy terms, user pages, etc.).
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function royal_heritage_preprocess_node(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $variables['date'] = \Drupal::service('date.formatter')
+    ->format($node->getCreatedTime(), 'long');
+  $variables['author_name'] = $node->getOwner()->getDisplayName();
+}

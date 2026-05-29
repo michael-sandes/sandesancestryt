@@ -1,0 +1,22 @@
+uuid: d6a9f97f-269b-4774-9bab-cf46add9b5db
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - royal_heritage
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: royal_heritage_content
+theme: royal_heritage
+region: content
+weight: -4
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

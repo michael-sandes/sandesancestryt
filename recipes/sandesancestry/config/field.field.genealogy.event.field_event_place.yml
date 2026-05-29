@@ -1,0 +1,29 @@
+uuid: 309f0113-442e-4511-93a6-817c1041b8c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.storage.genealogy.field_event_place
+    - node.type.place
+id: genealogy.event.field_event_place
+field_name: field_event_place
+entity_type: genealogy
+bundle: event
+label: 'Event place'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      place: place
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

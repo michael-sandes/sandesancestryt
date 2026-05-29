@@ -1,0 +1,58 @@
+uuid: 12d83667-dafb-4539-9ec3-57c157029f6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.countries
+    - views.view.places
+  module:
+    - layout_builder
+    - layout_discovery
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          a2f054fa-ade3-41f0-8bbf-b7feaa83fee2:
+            uuid: a2f054fa-ade3-41f0-8bbf-b7feaa83fee2
+            region: content
+            configuration:
+              id: 'field_block:taxonomy_term:countries:description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          67006756-efdd-4600-8b49-61fb0584de3a:
+            uuid: 67006756-efdd-4600-8b49-61fb0584de3a
+            region: content
+            configuration:
+              id: 'views_block:places-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: taxonomy_term.countries.default
+targetEntityType: taxonomy_term
+bundle: countries
+mode: default
+content: {  }
+hidden:
+  description: true

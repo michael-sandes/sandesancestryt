@@ -1,0 +1,19 @@
+uuid: 43ff2668-7078-4b55-b7e3-cf910c93c576
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_repository_id
+    - taxonomy.vocabulary.repositories
+id: taxonomy_term.repositories.field_repository_id
+field_name: field_repository_id
+entity_type: taxonomy_term
+bundle: repositories
+label: 'Repository ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

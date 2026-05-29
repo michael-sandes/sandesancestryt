@@ -1,0 +1,22 @@
+uuid: f5ef57b2-f6b1-43f3-8e93-78c9c026baf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - royal_heritage
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: royal_heritage_messages
+theme: royal_heritage
+region: highlighted
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

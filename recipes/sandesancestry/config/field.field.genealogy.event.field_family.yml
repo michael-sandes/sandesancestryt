@@ -1,0 +1,25 @@
+uuid: 3cbe66a9-b5d3-4c50-8e2d-cadfe68209d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.storage.genealogy.field_family
+id: genealogy.event.field_family
+field_name: field_family
+entity_type: genealogy
+bundle: event
+label: Family
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: families
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

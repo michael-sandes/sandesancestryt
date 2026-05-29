@@ -1,0 +1,23 @@
+uuid: 26e063c9-6567-4f0d-ba4b-a69bbd0439a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.pedigree
+  module:
+    - node
+id: pedigree
+label: Pedigree
+type: 'canonical_entities:node'
+pattern: '/pedigrees/[node:title]'
+selection_criteria:
+  d2f7f24c-ab5f-4209-933a-7c92205fbbe7:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      pedigree: pedigree
+selection_logic: and
+weight: -5
+relationships: {  }

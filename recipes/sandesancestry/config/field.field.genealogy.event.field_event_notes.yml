@@ -1,0 +1,28 @@
+uuid: 3d8ad23a-b258-4a50-9a5f-b4a9e1705b27
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.storage.genealogy.field_event_notes
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+  module:
+    - text
+id: genealogy.event.field_event_notes
+field_name: field_event_notes
+entity_type: genealogy
+bundle: event
+label: 'Event notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - restricted_html
+    - full_html
+field_type: text_long

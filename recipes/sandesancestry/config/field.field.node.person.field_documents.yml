@@ -1,0 +1,27 @@
+uuid: 22d0f9e4-9447-4f4e-a0fc-49e671436e0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_documents
+    - node.type.person
+  module:
+    - file
+id: node.person.field_documents
+field_name: field_documents
+entity_type: node
+bundle: person
+label: Documents
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: documents
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+field_type: file

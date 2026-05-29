@@ -1,0 +1,29 @@
+uuid: b3155bdf-252d-4225-b54c-f8b940acc5e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_repository
+    - node.type.source
+    - taxonomy.vocabulary.repositories
+id: node.source.field_repository
+field_name: field_repository
+entity_type: node
+bundle: source
+label: Repository
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      repositories: repositories
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

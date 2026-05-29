@@ -1,0 +1,20 @@
+uuid: 4ca9da25-201e-4610-869a-1288bce86f16
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - taxonomy
+id: genealogy.field_media_tags
+field_name: field_media_tags
+entity_type: genealogy
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

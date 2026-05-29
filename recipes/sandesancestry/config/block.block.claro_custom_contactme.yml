@@ -1,0 +1,23 @@
+uuid: abf56e4d-0e44-41dc-885c-0e7c32c80682
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:ec6480ee-b2e2-454c-b3f8-0aeb94fa8592'
+  module:
+    - block_content
+  theme:
+    - claro_custom
+id: claro_custom_contactme
+theme: claro_custom
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'block_content:ec6480ee-b2e2-454c-b3f8-0aeb94fa8592'
+settings:
+  id: 'block_content:ec6480ee-b2e2-454c-b3f8-0aeb94fa8592'
+  label: 'Contact me'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,17 @@
+uuid: 51d0d8a0-3e2d-4cc7-bc7d-efd32e45962b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Place
+type: place
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

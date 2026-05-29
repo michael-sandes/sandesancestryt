@@ -1,0 +1,9 @@
+uuid: 4ea41edf-bd66-4b85-9ae9-c0b1c9146882
+langcode: en
+status: true
+dependencies: {  }
+id: genealogy
+label: Genealogy
+weight: null
+menu: genealogy
+rewrite_label: false

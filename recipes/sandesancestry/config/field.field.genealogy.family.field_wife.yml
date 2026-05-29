@@ -1,0 +1,25 @@
+uuid: b264c64c-9124-4bfc-9f06-0cd943a1e2ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.family
+    - field.storage.genealogy.field_wife
+id: genealogy.family.field_wife
+field_name: field_wife
+entity_type: genealogy
+bundle: family
+label: Wife
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: people
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

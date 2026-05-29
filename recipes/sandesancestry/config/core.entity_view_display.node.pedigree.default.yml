@@ -1,0 +1,86 @@
+uuid: 89cc8cb9-394a-4207-84d1-5d771233828e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.pedigree.field_notes
+    - node.type.pedigree
+    - views.view.images
+    - views.view.people
+  module:
+    - layout_builder
+    - layout_discovery
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          1c40e998-60ea-46a1-99ff-bf378c2df3a8:
+            uuid: 1c40e998-60ea-46a1-99ff-bf378c2df3a8
+            region: first
+            configuration:
+              id: 'field_block:node:pedigree:field_notes'
+              label: Notes
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          ba459517-1e98-4318-96a4-a37de5aefb54:
+            uuid: ba459517-1e98-4318-96a4-a37de5aefb54
+            region: second
+            configuration:
+              id: 'views_block:images-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          e0fdbca0-e528-4263-9ecd-5b53ee4f2e47:
+            uuid: e0fdbca0-e528-4263-9ecd-5b53ee4f2e47
+            region: content
+            configuration:
+              id: 'views_block:people-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.pedigree.default
+targetEntityType: node
+bundle: pedigree
+mode: default
+content: {  }
+hidden:
+  field_notes: true
+  links: true

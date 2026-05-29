@@ -1,0 +1,23 @@
+uuid: bb129d7f-4e2f-49d9-bdc9-bddb090a7486
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:cf29f4e7-9bab-4756-bc4c-87e65844bf89'
+  module:
+    - block_content
+  theme:
+    - claro_custom
+id: claro_custom_copyrightnotice
+theme: claro_custom
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'block_content:cf29f4e7-9bab-4756-bc4c-87e65844bf89'
+settings:
+  id: 'block_content:cf29f4e7-9bab-4756-bc4c-87e65844bf89'
+  label: 'Copyright notice'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

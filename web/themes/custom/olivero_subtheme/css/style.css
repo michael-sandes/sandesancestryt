@@ -1,0 +1,71 @@
+.custom-block {
+  margin-bottom: 2em;
+}
+.custom-block .views-field {
+  padding: 0.25em 0;
+  border-bottom: 1px #eee solid;
+}
+.custom-block .views-label {
+  color: #666;
+  font-size: 0.75em;
+  float: left;
+}
+.custom-block .field-content {
+  margin-left: 20%;
+}
+.block__title {
+  font-size: 1.25em;
+  border-bottom: 2px #ddd solid;
+}
+.custom-block .field-content p {
+  margin: 0;
+}
+.custom-block a {
+  text-decoration: none;
+}
+.custom-block a:hover {
+  text-decoration: underline;
+}
+.attribution {
+  font-size: 75%;
+  text-align: center;
+}
+.custom-block .edit-link {
+  font-size: 0.6em;
+  float: right;
+}
+
+.custom-list .view-content {
+  display: block;
+}
+.custom-list .views-row {
+  padding: 0.25em 0;
+  border-bottom: 1px #eee solid;
+}
+.custom-list {
+  margin-bottom: 2em;
+}
+.custom-list .id-style {
+  font-size: 0.75em;
+  color: #666;
+}
+
+figcaption {
+  text-align: center;
+}
+.page-title {
+  font-size: 2rem;
+}
+b {
+  font-weight: bold;
+}
+/******************************/
+/* Make Layout Builder two-column stack on mobile */
+@media (max-width: 768px) {
+  .layout--twocol-section .layout__region,
+  .layout--twocol-section--67-33 .layout__region,
+  .layout--twocol-section--75-25 .layout__region {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}

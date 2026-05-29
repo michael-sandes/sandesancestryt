@@ -1,0 +1,28 @@
+uuid: fd15d7a9-7950-4a41-95f8-f272124505c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_access
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  content_access:
+    view_own:
+      - anonymous
+      - authenticated
+      - administrator
+    view:
+      - anonymous
+      - authenticated
+      - administrator
+    per_node: true
+name: Citation
+type: citation
+description: "People and events are supported by <em>Citations</em> use this content type for that.<br>\r\n<small>Create the Citation first and then attach the the Person or Event to it.</small>"
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

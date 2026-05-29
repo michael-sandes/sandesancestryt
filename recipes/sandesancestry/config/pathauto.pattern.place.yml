@@ -1,0 +1,23 @@
+uuid: fe4f94e5-0104-4ee9-afd7-2557b9446802
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.place
+  module:
+    - node
+id: place
+label: Place
+type: 'canonical_entities:node'
+pattern: '/countries/[node:field_country]/[node:title]'
+selection_criteria:
+  cf723de5-e7f1-4a34-a364-aa9321691201:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      place: place
+selection_logic: and
+weight: -5
+relationships: {  }

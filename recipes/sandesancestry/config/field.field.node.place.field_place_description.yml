@@ -1,0 +1,22 @@
+uuid: 22ce0450-d767-4482-bc0b-6636d90725ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_place_description
+    - node.type.place
+  module:
+    - text
+id: node.place.field_place_description
+field_name: field_place_description
+entity_type: node
+bundle: place
+label: 'Place description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

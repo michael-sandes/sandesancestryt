@@ -1,0 +1,19 @@
+uuid: c1f32156-1ccd-4fdb-89cd-fb321fd0705f
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: genealogy.field_event_notes
+field_name: field_event_notes
+entity_type: genealogy
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

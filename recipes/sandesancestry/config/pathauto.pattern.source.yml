@@ -1,0 +1,23 @@
+uuid: b85c02a5-e833-44b5-ac0a-5a1db2e8cf65
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.source
+  module:
+    - node
+id: source
+label: Source
+type: 'canonical_entities:node'
+pattern: '/sources/[node:field_source_id]'
+selection_criteria:
+  f25ba0ad-b65a-4bfa-8851-1318d74468cd:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      source: source
+selection_logic: and
+weight: -5
+relationships: {  }

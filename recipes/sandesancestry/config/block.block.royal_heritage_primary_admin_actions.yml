@@ -1,0 +1,20 @@
+uuid: 3149321e-4a15-4e5e-aaaf-69bc65127c10
+langcode: en
+status: true
+dependencies:
+  theme:
+    - royal_heritage
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: royal_heritage_primary_admin_actions
+theme: royal_heritage
+region: highlighted
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

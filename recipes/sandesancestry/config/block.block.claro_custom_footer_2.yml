@@ -1,0 +1,25 @@
+uuid: aa387245-6104-48e3-9a0e-1dda931461ed
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - claro_custom
+id: claro_custom_footer_2
+theme: claro_custom
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Legal
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

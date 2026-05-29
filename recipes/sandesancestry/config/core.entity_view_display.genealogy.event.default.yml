@@ -1,0 +1,85 @@
+uuid: ab704472-11af-458e-b7c9-13dd4138bd08
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.field.genealogy.event.field_citations
+    - field.field.genealogy.event.field_event_date
+    - field.field.genealogy.event.field_event_description
+    - field.field.genealogy.event.field_event_notes
+    - field.field.genealogy.event.field_event_place
+    - field.field.genealogy.event.field_event_type
+    - field.field.genealogy.event.field_family
+    - field.field.genealogy.event.field_person
+  module:
+    - text
+id: genealogy.event.default
+targetEntityType: genealogy
+bundle: event
+mode: default
+content:
+  field_citations:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_event_date:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_event_description:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_event_notes:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_event_place:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_event_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_family:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_person:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

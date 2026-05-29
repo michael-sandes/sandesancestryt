@@ -1,0 +1,18 @@
+uuid: 08f4f429-d749-44a4-a9b1-5f2e83e1fc38
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.pedigree
+id: node.pedigree.title
+field_name: title
+entity_type: node
+bundle: pedigree
+label: 'Pedigree name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

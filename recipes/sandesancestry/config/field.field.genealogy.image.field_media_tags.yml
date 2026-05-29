@@ -1,0 +1,29 @@
+uuid: a4739eb3-f3fe-41c0-bb1e-8229798960d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.image
+    - field.storage.genealogy.field_media_tags
+    - taxonomy.vocabulary.media_tags
+id: genealogy.image.field_media_tags
+field_name: field_media_tags
+entity_type: genealogy
+bundle: image
+label: 'Media tags'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      media_tags: media_tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

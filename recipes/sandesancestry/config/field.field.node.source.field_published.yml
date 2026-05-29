@@ -1,0 +1,19 @@
+uuid: 32bc33f7-ba04-482d-8afc-201b6a87f479
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published
+    - node.type.source
+id: node.source.field_published
+field_name: field_published
+entity_type: node
+bundle: source
+label: Publisher
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

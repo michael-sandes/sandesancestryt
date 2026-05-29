@@ -1,0 +1,23 @@
+uuid: 91b31db3-8515-403b-9921-eef16b760613
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ec6480ee-b2e2-454c-b3f8-0aeb94fa8592'
+  module:
+    - block_content
+  theme:
+    - royal_heritage
+id: royal_heritage_contactme
+theme: royal_heritage
+region: footer_second
+weight: -6
+provider: null
+plugin: 'block_content:ec6480ee-b2e2-454c-b3f8-0aeb94fa8592'
+settings:
+  id: 'block_content:ec6480ee-b2e2-454c-b3f8-0aeb94fa8592'
+  label: 'Contact me'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

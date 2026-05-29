@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Royal Heritage theme: block--page-title-block.html.twig
+ *
+ * The page title block renders its content as a bare <span> before
+ * page-title.html.twig is invoked, so we wrap {{ content }} directly
+ * in an <h1> here to guarantee the heading markup.
+ */
+#}
+<div{{ attributes.addClass('block', 'block-page-title') }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {{ content }}
+</div>

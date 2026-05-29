@@ -1,0 +1,10 @@
+# Default theme settings for claro_custom.
+# These are merged with Claro's own defaults.
+
+# Uncomment and adjust to pre-configure logo, favicon, etc.
+# logo:
+#   use_default: false
+#   path: 'themes/custom/claro_custom/images/logo.svg'
+# favicon:
+#   use_default: false
+#   path: 'themes/custom/claro_custom/images/favicon.ico'

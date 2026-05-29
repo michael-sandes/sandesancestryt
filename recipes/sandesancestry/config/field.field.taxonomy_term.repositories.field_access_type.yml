@@ -1,0 +1,21 @@
+uuid: 51ef30ea-0200-45bb-bfc0-2b2d52d6f3c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_access_type
+    - taxonomy.vocabulary.repositories
+  module:
+    - options
+id: taxonomy_term.repositories.field_access_type
+field_name: field_access_type
+entity_type: taxonomy_term
+bundle: repositories
+label: 'Access type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

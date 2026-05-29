@@ -1,0 +1,19 @@
+uuid: 2d71827a-8efa-40b7-95de-fa1040e54105
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_year
+    - node.type.source
+id: node.source.field_published_year
+field_name: field_published_year
+entity_type: node
+bundle: source
+label: 'Published year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

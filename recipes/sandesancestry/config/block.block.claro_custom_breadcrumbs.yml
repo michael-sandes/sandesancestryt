@@ -1,0 +1,26 @@
+uuid: 673b780c-b02e-4968-84b7-98d26e9609bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - claro_custom
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: claro_custom_breadcrumbs
+theme: claro_custom
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '<front>'

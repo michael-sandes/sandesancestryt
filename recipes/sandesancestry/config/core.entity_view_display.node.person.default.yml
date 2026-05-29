@@ -1,0 +1,142 @@
+uuid: 1bf9c49a-abc8-4579-adec-67f627ddf4af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.body
+    - field.field.node.person.field_citations
+    - field.field.node.person.field_documents
+    - field.field.node.person.field_gender
+    - field.field.node.person.field_living
+    - field.field.node.person.field_notes
+    - field.field.node.person.field_pedigree
+    - field.field.node.person.field_person_id
+    - node.type.person
+    - views.view.events
+    - views.view.families
+    - views.view.images
+    - views.view.people
+  module:
+    - file
+    - layout_builder
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 67-33
+        components:
+          2fa36dab-7fd9-43d1-a353-e1a3e68eeb97:
+            uuid: 2fa36dab-7fd9-43d1-a353-e1a3e68eeb97
+            region: second
+            configuration:
+              id: 'views_block:images-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+          3ed4a79f-50df-4ccf-ae5e-2e2ce71a48d5:
+            uuid: 3ed4a79f-50df-4ccf-ae5e-2e2ce71a48d5
+            region: first
+            configuration:
+              id: 'views_block:events-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 4
+            additional: {  }
+          f7c68f37-8963-4a53-8498-976207f78a35:
+            uuid: f7c68f37-8963-4a53-8498-976207f78a35
+            region: first
+            configuration:
+              id: 'views_block:families-block_3'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 3
+            additional: {  }
+          59298f86-17e0-4107-9e76-e4b8f71e5c8c:
+            uuid: 59298f86-17e0-4107-9e76-e4b8f71e5c8c
+            region: first
+            configuration:
+              id: 'views_block:families-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 2
+            additional: {  }
+          0f2285e3-ae58-4b62-83bb-0515a615320f:
+            uuid: 0f2285e3-ae58-4b62-83bb-0515a615320f
+            region: first
+            configuration:
+              id: 'views_block:families-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 1
+            additional: {  }
+          44623a1c-cdd6-4a8b-b793-14ad4691f46e:
+            uuid: 44623a1c-cdd6-4a8b-b793-14ad4691f46e
+            region: first
+            configuration:
+              id: 'views_block:people-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  field_documents:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: first
+hidden:
+  body: true
+  field_citations: true
+  field_gender: true
+  field_living: true
+  field_notes: true
+  field_pedigree: true
+  field_person_id: true
+  links: true

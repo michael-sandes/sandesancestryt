@@ -1,0 +1,103 @@
+<?php
+
+/**
+ * @file
+ * Restricts living person node content to authenticated users only.
+ *
+ * Anonymous users can see the node title but no field content. Access is
+ * granted via a dedicated node-grant realm so this module works alongside
+ * content_access without conflict (grants are OR'd at the SQL level).
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_grants().
+ *
+ * Gives every user (anonymous and authenticated) the view grant for the
+ * living_member_privacy realm. The view_alter hook then hides field content
+ * for anonymous users after access is granted.
+ */
+function living_member_privacy_node_grants(AccountInterface $account, string $operation): array {
+  if ($operation === 'view') {
+    return ['living_member_privacy' => [1]];
+  }
+  return [];
+}
+
+/**
+ * Implements hook_node_access_records().
+ *
+ * Adds a view-only grant row for every published living person node. This
+ * lets the grants query find a match for all users, overriding any
+ * content_access restriction that would otherwise hide the node entirely.
+ */
+function living_member_privacy_node_access_records(NodeInterface $node): array {
+  if ($node->bundle() !== 'person') {
+    return [];
+  }
+  if (!$node->isPublished()) {
+    return [];
+  }
+  if (!$node->hasField('field_living') || !(bool) $node->get('field_living')->value) {
+    return [];
+  }
+  return [
+    [
+      'realm'        => 'living_member_privacy',
+      'gid'          => 1,
+      'grant_view'   => 1,
+      'grant_update' => 0,
+      'grant_delete' => 0,
+    ],
+  ];
+}
+
+/**
+ * Implements hook_node_view_alter().
+ *
+ * For anonymous users viewing a living person node, removes all render
+ * children from the build array — this covers standard fields, Layout Builder
+ * sections, embedded Views blocks, and anything else — then inserts a privacy
+ * notice. The page title (H1) is rendered by the page title block outside
+ * this build array, so the person's name remains visible.
+ */
+function living_member_privacy_node_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display): void {
+  if (!($entity instanceof NodeInterface) || $entity->bundle() !== 'person') {
+    return;
+  }
+  if (!$entity->hasField('field_living') || !(bool) $entity->get('field_living')->value) {
+    return;
+  }
+
+  // The render output must vary by authentication status.
+  $build['#cache']['contexts'][] = 'user.roles:authenticated';
+
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    return;
+  }
+
+  // Remove every render child (keys not starting with '#') regardless of
+  // whether the display uses standard fields, Layout Builder sections, or
+  // Views blocks. Keys starting with '#' are Render API metadata and must
+  // stay.
+  foreach (array_keys($build) as $key) {
+    if ($key[0] !== '#') {
+      unset($build[$key]);
+    }
+  }
+
+  $login_url = Url::fromRoute('user.login', [], ['query' => \Drupal::destination()->getAsArray()])->toString();
+
+  $build['living_member_privacy_notice'] = [
+    '#type'       => 'html_tag',
+    '#tag'        => 'p',
+    '#value'      => t('Details for living family members are private. <a href=":url">Sign in</a> to view this record.', [':url' => $login_url]),
+    '#attributes' => ['class' => ['living-member-privacy-notice']],
+    '#weight'     => 100,
+  ];
+}

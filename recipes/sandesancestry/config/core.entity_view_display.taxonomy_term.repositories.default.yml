@@ -1,0 +1,76 @@
+uuid: 29c6e718-97c1-47a5-9078-54f97c45e74b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.repositories.field_access_type
+    - field.field.taxonomy_term.repositories.field_repository_id
+    - field.field.taxonomy_term.repositories.field_url
+    - taxonomy.vocabulary.repositories
+    - views.view.repositories
+  module:
+    - layout_builder
+    - link
+    - options
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 67-33
+        components:
+          f684ed8c-5b02-4da1-9d79-bda94c4e6b37:
+            uuid: f684ed8c-5b02-4da1-9d79-bda94c4e6b37
+            region: first
+            configuration:
+              id: 'views_block:repositories-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: taxonomy_term.repositories.default
+targetEntityType: taxonomy_term
+bundle: repositories
+mode: default
+content:
+  field_access_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: -2
+    region: content
+  field_repository_id:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  field_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: -3
+    region: content
+hidden:
+  description: true

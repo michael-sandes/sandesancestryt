@@ -1,0 +1,1307 @@
+/* =============================================================================
+   Royal Heritage Theme — Drupal 11
+   Palette: Royal Blue & Gold
+   ============================================================================= */
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&display=swap');
+
+/* ---------------------------------------------------------------------------
+   CSS Custom Properties
+   --------------------------------------------------------------------------- */
+:root {
+  /* Core palette */
+  --rh-blue-deep:     #0d1f4e;   /* deepest navy */
+  --rh-blue:          #1a3a8a;   /* royal blue */
+  --rh-blue-mid:      #2a52b5;   /* mid blue */
+  --rh-blue-light:    #3a6dd4;   /* lighter blue for hover */
+  --rh-blue-pale:     #d8e4f5;   /* pale blue tint for backgrounds */
+
+  --rh-gold:          #c9a03a;   /* rich gold */
+  --rh-gold-bright:   #e8c060;   /* bright gold accent */
+  --rh-gold-deep:     #8a6820;   /* deep gold / dark accent */
+  --rh-gold-pale:     #f7edd5;   /* pale gold for subtle fills */
+
+  --rh-white:         #ffffff;
+  --rh-cream:         #faf8f3;
+  --rh-text:          #1a1a2e;
+  --rh-text-muted:    #4a5270;
+  --rh-border:        #c5d3ee;
+
+  /* Typography */
+  --font-display:     'Cinzel', Georgia, serif;
+  --font-heading:     'Playfair Display', Georgia, serif;
+  --font-body:        'Montserrat', Arial, sans-serif;
+
+  /* Spacing */
+  --gap:              1.5rem;
+  --section-pad:      2.5rem;
+
+  /* Borders & radii */
+  --radius:           4px;
+  --radius-lg:        8px;
+
+  /* Shadows */
+  --shadow-sm:        0 2px 8px rgba(13,31,78,0.12);
+  --shadow-md:        0 4px 18px rgba(13,31,78,0.18);
+  --shadow-lg:        0 8px 36px rgba(13,31,78,0.22);
+
+  /* Transitions */
+  --trans:            0.25s ease;
+}
+
+/* ---------------------------------------------------------------------------
+   Reset & Base
+   --------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--rh-text);
+  background: var(--rh-cream);
+}
+
+/* ---------------------------------------------------------------------------
+   Typography
+   --------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 1.25em 0 0.5em;
+  color: var(--rh-blue-deep);
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.15rem; }
+h5, h6 { font-size: 1rem; }
+
+p { margin: 0 0 1.2em; }
+
+a {
+  color: var(--rh-blue-mid);
+  text-decoration: underline;
+  text-decoration-color: var(--rh-gold);
+  text-underline-offset: 3px;
+  transition: color var(--trans), text-decoration-color var(--trans);
+}
+a:hover, a:focus {
+  color: var(--rh-blue);
+  text-decoration-color: var(--rh-gold-bright);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+ul, ol { padding-left: 1.5em; }
+li { margin-bottom: 0.35em; }
+
+blockquote {
+  margin: 1.5em 0;
+  padding: 1em 1.5em;
+  border-left: 4px solid var(--rh-gold);
+  background: var(--rh-gold-pale);
+  color: var(--rh-text-muted);
+  font-style: italic;
+}
+
+code, pre {
+  font-family: 'Courier New', monospace;
+  font-size: 0.88em;
+  background: var(--rh-blue-pale);
+  border-radius: var(--radius);
+}
+pre { padding: 1em 1.25em; overflow-x: auto; }
+code { padding: 0.1em 0.35em; }
+
+figure {
+  margin: 1.5em 0;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--rh-text-muted);
+  border-left: 3px solid var(--rh-gold);
+  background: var(--rh-gold-pale);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+
+/* ---------------------------------------------------------------------------
+   Skip Navigation (Accessibility)
+   --------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5em 1em;
+  background: var(--rh-gold);
+  color: var(--rh-blue-deep);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: top var(--trans);
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------------------------------------------------------------------------
+   Overall Layout Wrapper
+   --------------------------------------------------------------------------- */
+.layout-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header and nav bars span the full viewport width with their own
+   background, while their inner content respects the wider container */
+.site-header,
+.site-nav,
+.site-breadcrumb,
+.region-highlighted,
+.site-footer {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   HEADER
+   --------------------------------------------------------------------------- */
+.site-header {
+  background: linear-gradient(135deg, var(--rh-blue-deep) 0%, var(--rh-blue) 60%, var(--rh-blue-mid) 100%);
+  color: var(--rh-white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative gold rule at the very top */
+.site-header::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background: linear-gradient(90deg, var(--rh-gold-deep), var(--rh-gold-bright), var(--rh-gold-deep));
+}
+
+/* Subtle heraldic pattern overlay */
+.site-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 10% 50%, rgba(201,160,58,0.08) 0%, transparent 60%),
+    radial-gradient(circle at 90% 20%, rgba(201,160,58,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Branding (site name + slogan) */
+.site-branding {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.site-name {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rh-white);
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.site-name a {
+  color: inherit;
+  text-decoration: none;
+}
+.site-name a:hover { color: var(--rh-gold-bright); }
+
+.site-slogan {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
+
+/* Header region — flex row; branding block (weight -10) sits first,
+   additional blocks (search, utility links, etc.) follow it.
+   A gold ornamental divider is injected between branding and any sibling
+   blocks via a ::before pseudo-element on the second child. */
+.region-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Branding takes up remaining space so extra blocks are pushed right */
+.region-header .site-branding {
+  flex: 1 1 auto;
+}
+
+/* Gold ornament between branding and any following header block */
+.region-header .block:not(.block-system-branding-block):first-of-type::before {
+  content: '';
+  display: block;
+  flex-shrink: 0;
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--rh-gold), transparent);
+  opacity: 0.6;
+  margin-right: 1.5rem;
+}
+
+/* ---------------------------------------------------------------------------
+   PRIMARY NAVIGATION
+   --------------------------------------------------------------------------- */
+.site-nav {
+  background: var(--rh-blue-deep);
+  border-top: 1px solid rgba(201,160,58,0.2);
+  border-bottom: 3px solid var(--rh-gold);
+}
+
+.region-primary-menu {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+/* Drupal menu theming */
+/* Force the nav region wrappers to be non-interfering blocks */
+.site-nav .region-primary-menu,
+.site-nav .block,
+.site-nav .contextual-region {
+  display: block;
+  width: 100%;
+}
+
+/* Root nav element */
+nav.rh-nav {
+  display: block;
+  width: 100%;
+}
+
+/* Top-level list — horizontal row */
+ul.rh-nav__list.rh-nav__list--depth-0 {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+
+/* All list items */
+ul.rh-nav__list li.rh-nav__item {
+  display: block !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  float: none !important;
+}
+
+/* Nav links */
+a.rh-nav__link {
+  display: block;
+  padding: 0.85rem 1.2rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  white-space: nowrap;
+  transition: color var(--trans), border-color var(--trans), background var(--trans);
+}
+
+a.rh-nav__link:hover,
+a.rh-nav__link:focus,
+a.rh-nav__link--active {
+  color: var(--rh-gold-bright);
+  border-bottom-color: var(--rh-gold-bright);
+  background: rgba(201,160,58,0.08);
+  text-decoration: none;
+}
+
+/* Dropdown — depth-1+ lists */
+ul.rh-nav__list.rh-nav__list--depth-1 {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: none;
+  flex-direction: column !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 210px;
+  background: var(--rh-blue-deep);
+  border: 1px solid rgba(201,160,58,0.3);
+  border-top: 2px solid var(--rh-gold);
+  box-shadow: var(--shadow-lg);
+  z-index: 200;
+}
+
+li.rh-nav__item--has-children:hover > ul.rh-nav__list--depth-1,
+li.rh-nav__item--has-children:focus-within > ul.rh-nav__list--depth-1 {
+  display: flex;
+}
+
+ul.rh-nav__list--depth-1 a.rh-nav__link {
+  border-bottom: none;
+  border-left: 3px solid transparent;
+  margin: 0;
+  padding: 0.65rem 1.2rem;
+  white-space: normal;
+}
+ul.rh-nav__list--depth-1 a.rh-nav__link:hover,
+ul.rh-nav__list--depth-1 a.rh-nav__link--active {
+  border-left-color: var(--rh-gold);
+  background: rgba(201,160,58,0.1);
+}
+
+.region-primary-menu ul.menu a,
+.region-primary-menu ul.menu button {
+  display: block;
+  padding: 0.85rem 1.2rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  transition: color var(--trans), border-color var(--trans), background var(--trans);
+}
+
+.region-primary-menu ul.menu a:hover,
+.region-primary-menu ul.menu a:focus,
+.region-primary-menu ul.menu a.is-active {
+  color: var(--rh-gold-bright);
+  border-bottom-color: var(--rh-gold-bright);
+  background: rgba(201,160,58,0.08);
+  text-decoration: none;
+}
+
+/* Dropdown submenus — legacy fallback (menu--main.html.twig handles this) */
+
+/* Mobile menu toggle (hidden by default, shown on small screens) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  color: var(--rh-white);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: border-color var(--trans);
+}
+.menu-toggle:hover { border-color: var(--rh-gold); color: var(--rh-gold-bright); }
+
+/* ---------------------------------------------------------------------------
+   HIGHLIGHTED / MESSAGES REGION
+   The wrapper is always in the DOM (BigPipe needs the container).
+   No default styling — an empty wrapper is invisible.
+   Visual chrome is added when messages are present.
+   .messages  — added by our status-messages.html.twig override
+   [data-drupal-messages] — Drupal 11 core wrapper; acts as a fallback
+   --------------------------------------------------------------------------- */
+.region-highlighted-wrapper:has(.messages),
+.region-highlighted-wrapper:has([data-drupal-messages]:not(:empty)) {
+  background: var(--rh-gold-pale);
+  border-bottom: 2px solid var(--rh-gold);
+  padding: 1rem 0;
+}
+
+/* ---------------------------------------------------------------------------
+   BREADCRUMB
+   --------------------------------------------------------------------------- */
+.site-breadcrumb {
+  background: var(--rh-blue-pale);
+  border-bottom: 1px solid var(--rh-border);
+  padding: 0.6rem 1.5rem;
+}
+
+nav.rh-breadcrumb {
+  display: block;
+}
+
+ol.rh-breadcrumb__list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  font-size: 0.82rem;
+  color: var(--rh-text-muted);
+}
+
+li.rh-breadcrumb__item {
+  display: inline-flex !important;
+  list-style: none !important;
+  align-items: center;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.rh-breadcrumb__link {
+  color: var(--rh-blue-mid);
+  text-decoration: none;
+}
+.rh-breadcrumb__link:hover {
+  color: var(--rh-blue);
+  text-decoration: underline;
+  text-decoration-color: var(--rh-gold);
+}
+
+.rh-breadcrumb__current {
+  color: var(--rh-text-muted);
+  font-style: italic;
+}
+
+.rh-breadcrumb__sep {
+  margin: 0 0.4rem;
+  color: var(--rh-gold);
+  font-style: normal;
+}
+
+/* ---------------------------------------------------------------------------
+   MAIN CONTENT AREA (Two-column: content + sidebar)
+   --------------------------------------------------------------------------- */
+.layout-main-wrapper {
+  padding: var(--section-pad) 1.5rem;
+}
+
+.layout-main {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-areas: "content sidebar";
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Content region */
+.layout-content {
+  grid-area: content;
+  min-width: 0; /* prevent overflow */
+}
+
+/* ---------------------------------------------------------------------------
+   SIDEBAR
+   --------------------------------------------------------------------------- */
+.layout-sidebar-first {
+  grid-area: sidebar;
+}
+
+.region-sidebar-first .block {
+  background: var(--rh-white);
+  border: 1px solid var(--rh-border);
+  border-top: 3px solid var(--rh-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--trans);
+}
+
+.region-sidebar-first .block:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.region-sidebar-first .block-title,
+.region-sidebar-first h2 {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rh-blue-deep);
+  margin: 0 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rh-gold-pale);
+  position: relative;
+}
+
+.region-sidebar-first .block-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--rh-gold);
+}
+
+/* Sidebar menus */
+.region-sidebar-first ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.region-sidebar-first ul.menu li {
+  margin: 0;
+  border-bottom: 1px solid var(--rh-blue-pale);
+}
+.region-sidebar-first ul.menu li:last-child { border-bottom: none; }
+
+.region-sidebar-first ul.menu a {
+  display: block;
+  padding: 0.5rem 0;
+  color: var(--rh-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color var(--trans), padding-left var(--trans);
+}
+.region-sidebar-first ul.menu a:hover,
+.region-sidebar-first ul.menu a.is-active {
+  color: var(--rh-blue-mid);
+  padding-left: 0.5rem;
+  text-decoration: none;
+}
+.region-sidebar-first ul.menu a.is-active { color: var(--rh-gold-deep); font-weight: 600; }
+
+/* ---------------------------------------------------------------------------
+   CONTENT / NODES
+   --------------------------------------------------------------------------- */
+.node,
+.view,
+article.node {
+  background: var(--rh-white);
+  border: 1px solid var(--rh-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2rem;
+}
+
+/* Page title — matched via our class, the block wrapper, and Drupal's
+   own .page-title class so styling works regardless of cache state. */
+h1.rh-page-title,
+.block-page-title h1,
+.block-page-title__content h1,
+h1.page-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--rh-blue-deep);
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--rh-gold-pale);
+  position: relative;
+  line-height: 1.2;
+}
+
+/* Drupal wraps the title text in a <span> — ensure it inherits */
+h1.rh-page-title span,
+.block-page-title h1 span {
+  font: inherit;
+  color: inherit;
+  display: inline;
+}
+
+h1.rh-page-title::after,
+.block-page-title h1::after,
+.block-page-title__content h1::after,
+h1.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--rh-gold);
+}
+
+/* Node title (teaser/listing — h2 only, never full page) */
+.node__title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--rh-blue-deep);
+  margin: 0 0 0.6rem;
+}
+
+.node__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.node__title a:hover {
+  color: var(--rh-blue-mid);
+  text-decoration: underline;
+  text-decoration-color: var(--rh-gold);
+}
+
+/* Node meta */
+.node__meta,
+.node__submitted {
+  font-size: 0.83rem;
+  color: var(--rh-text-muted);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+/* Tags / Labels */
+.field--name-field-tags a,
+.tag-link {
+  display: inline-block;
+  padding: 0.15em 0.6em;
+  background: var(--rh-blue-pale);
+  color: var(--rh-blue-mid);
+  border: 1px solid var(--rh-border);
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  text-decoration: none;
+  margin: 0.15em;
+  transition: background var(--trans), color var(--trans);
+}
+.field--name-field-tags a:hover { background: var(--rh-gold-pale); color: var(--rh-gold-deep); border-color: var(--rh-gold); }
+
+/* Read more links */
+a.read-more,
+.more-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.5em 1.2em;
+  background: var(--rh-blue);
+  color: var(--rh-white);
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--rh-blue);
+  transition: background var(--trans), color var(--trans), border-color var(--trans);
+}
+a.read-more:hover,
+.more-link a:hover {
+  background: var(--rh-gold);
+  border-color: var(--rh-gold);
+  color: var(--rh-blue-deep);
+}
+
+/* ---------------------------------------------------------------------------
+   BUTTONS & FORMS
+   --------------------------------------------------------------------------- */
+button,
+input[type="submit"],
+input[type="button"],
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.55em 1.4em;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: var(--radius);
+  transition: all var(--trans);
+  text-decoration: none;
+}
+
+.button--primary,
+input[type="submit"] {
+  background: var(--rh-blue);
+  color: var(--rh-white);
+  border: 2px solid var(--rh-blue);
+}
+.button--primary:hover,
+input[type="submit"]:hover {
+  background: var(--rh-blue-mid);
+  border-color: var(--rh-blue-mid);
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--rh-blue);
+  border: 2px solid var(--rh-blue);
+}
+.button--secondary:hover {
+  background: var(--rh-blue);
+  color: var(--rh-white);
+}
+
+.button--gold {
+  background: var(--rh-gold);
+  color: var(--rh-blue-deep);
+  border: 2px solid var(--rh-gold);
+}
+.button--gold:hover {
+  background: var(--rh-gold-bright);
+  border-color: var(--rh-gold-bright);
+}
+
+/* Form inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6em 0.9em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--rh-text);
+  background: var(--rh-white);
+  border: 1px solid var(--rh-border);
+  border-radius: var(--radius);
+  transition: border-color var(--trans), box-shadow var(--trans);
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--rh-blue-mid);
+  box-shadow: 0 0 0 3px rgba(26,58,138,0.15);
+}
+
+label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rh-blue-deep);
+  margin-bottom: 0.35em;
+}
+
+.form-item { margin-bottom: 1.25rem; }
+
+/* Search block */
+.block-search .form-search {
+  display: flex;
+  gap: 0;
+}
+.block-search input[type="search"] {
+  border-radius: var(--radius) 0 0 var(--radius);
+  border-right: none;
+}
+.block-search button {
+  background: var(--rh-gold);
+  color: var(--rh-blue-deep);
+  border: 1px solid var(--rh-gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.6em 1em;
+  font-size: 0.85rem;
+}
+.block-search button:hover {
+  background: var(--rh-gold-bright);
+}
+
+/* ---------------------------------------------------------------------------
+   PAGER / PAGINATION
+   --------------------------------------------------------------------------- */
+nav.pager {
+  margin: 2rem 0;
+}
+
+ul.pager__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+.pager__item a,
+.pager__item.is-active span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--rh-border);
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--rh-blue-mid);
+  text-decoration: none;
+  transition: all var(--trans);
+}
+
+.pager__item a:hover {
+  background: var(--rh-blue);
+  border-color: var(--rh-blue);
+  color: var(--rh-white);
+}
+
+.pager__item.is-active span {
+  background: var(--rh-gold);
+  border-color: var(--rh-gold);
+  color: var(--rh-blue-deep);
+}
+
+/* ---------------------------------------------------------------------------
+   STATUS MESSAGES
+   --------------------------------------------------------------------------- */
+.messages {
+  padding: 1em 1.25em;
+  border-radius: var(--radius);
+  border-left: 4px solid;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.messages--status  { background: #e8f4f0; border-color: #2e8a5e; color: #1d5c3e; }
+.messages--warning { background: var(--rh-gold-pale); border-color: var(--rh-gold); color: var(--rh-gold-deep); }
+.messages--error   { background: #fce8e8; border-color: #c0392b; color: #7b1616; }
+
+/* ---------------------------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--rh-blue-deep);
+  color: rgba(255,255,255,0.8);
+  margin-top: 3rem;
+  position: relative;
+}
+
+/* Gold rule at top of footer */
+.site-footer::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rh-gold-deep), var(--rh-gold-bright), var(--rh-gold-deep));
+}
+
+.footer-widgets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding: 3rem 0 2rem;
+}
+
+.footer-widgets > * {
+  min-width: 0;
+}
+
+/* Footer block styling */
+.region-footer-first .block,
+.region-footer-second .block,
+.region-footer-third .block {
+  color: rgba(255,255,255,0.8);
+}
+
+.region-footer-first .block-title,
+.region-footer-second .block-title,
+.region-footer-third .block-title,
+.region-footer-first h2,
+.region-footer-second h2,
+.region-footer-third h2 {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rh-gold-bright);
+  margin: 0 0 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(201,160,58,0.25);
+}
+
+/* Footer menu links */
+.site-footer ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-footer ul.menu li { margin-bottom: 0.45rem; }
+.site-footer ul.menu a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color var(--trans);
+}
+.site-footer ul.menu a:hover {
+  color: var(--rh-gold-bright);
+  text-decoration: underline;
+}
+
+/* Footer body text */
+.site-footer p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+}
+
+.site-footer a {
+  color: var(--rh-gold-bright);
+}
+.site-footer a:hover { color: var(--rh-gold); }
+
+/* Footer bottom bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.footer-bottom a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+}
+.footer-bottom a:hover { color: var(--rh-gold-bright); }
+
+.region-footer-bottom { width: 100%; }
+
+/* ---------------------------------------------------------------------------
+   DRUPAL TOOLBAR COMPENSATION
+   --------------------------------------------------------------------------- */
+body.toolbar-fixed {
+  padding-top: 0;
+}
+body.toolbar-fixed .site-header {
+  /* Drupal admin toolbar adds top offset via JS; no override needed */
+}
+
+/* ---------------------------------------------------------------------------
+   DRUPAL TABS (local tasks)
+   Templates: menu-local-tasks.html.twig + menu-local-task.html.twig
+   --------------------------------------------------------------------------- */
+.rh-tabs {
+  margin-bottom: 1.5rem;
+}
+
+ul.rh-tabs__list {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  border-bottom: 2px solid var(--rh-gold);
+}
+
+li.rh-tabs__item {
+  display: inline-flex !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Drupal renders the link as <a> inside the <li>; target it broadly */
+li.rh-tabs__item a {
+  display: block;
+  padding: 0.55em 1.1em;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rh-blue-mid);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  transition: all var(--trans);
+}
+
+li.rh-tabs__item a:hover,
+li.rh-tabs__item a:focus {
+  background: var(--rh-gold-pale);
+  border-color: var(--rh-gold);
+  color: var(--rh-blue-deep);
+}
+
+li.rh-tabs__item--active a {
+  background: var(--rh-gold) !important;
+  border-color: var(--rh-gold) !important;
+  color: var(--rh-blue-deep) !important;
+}
+
+/* Secondary tabs */
+.rh-tabs--secondary {
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+}
+ul.rh-tabs__list--secondary {
+  border-bottom: 1px solid var(--rh-border);
+}
+ul.rh-tabs__list--secondary li.rh-tabs__item a {
+  font-size: 0.72rem;
+  padding: 0.4em 0.9em;
+  color: var(--rh-text-muted);
+}
+ul.rh-tabs__list--secondary li.rh-tabs__item--active a {
+  background: var(--rh-blue-pale) !important;
+  border-color: var(--rh-border) !important;
+  color: var(--rh-blue-deep) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   RESPONSIVE — Tablet
+   --------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .layout-main {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .footer-widgets {
+    grid-template-columns: 1fr 1fr;
+  }
+  .region-footer-third { grid-column: 1 / -1; }
+}
+
+/* ---------------------------------------------------------------------------
+   RESPONSIVE — Mobile
+   --------------------------------------------------------------------------- */
+@media (max-width: 680px) {
+  html { font-size: 16px; }
+
+  .site-header__inner {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .header-ornament { display: none; }
+
+  .site-name { font-size: 1.5rem; }
+
+  /* Navigation */
+  .menu-toggle { display: block; }
+
+  .site-nav > .layout-container { padding: 0; }
+
+  .region-primary-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+  .region-primary-menu.is-open { max-height: 800px; }
+
+  ul.rh-nav__list.rh-nav__list--depth-0 {
+    flex-direction: column !important;
+    width: 100%;
+  }
+
+  a.rh-nav__link {
+    border-bottom: none !important;
+    border-left: 3px solid transparent;
+    margin: 0;
+    padding: 0.8rem 1.25rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  }
+  a.rh-nav__link:hover,
+  a.rh-nav__link--active {
+    border-left-color: var(--rh-gold-bright);
+  }
+
+  ul.rh-nav__list--depth-1 {
+    position: static !important;
+    border: none !important;
+    border-top: 1px solid rgba(201,160,58,0.2) !important;
+    box-shadow: none !important;
+    display: flex !important;
+    background: rgba(0,0,0,0.2);
+  }
+  ul.rh-nav__list--depth-1 a.rh-nav__link { padding-left: 2rem; }
+
+  /* Stack layout */
+  .layout-main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "content"
+      "sidebar";
+    gap: 1.5rem;
+  }
+
+  .layout-main-wrapper { padding: 1.5rem 1rem; }
+
+  .node, article.node { padding: 1.25rem; }
+
+  /* Footer */
+  .footer-widgets {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem 1.5rem;
+  }
+  .region-footer-third { grid-column: auto; }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   UTILITY CLASSES
+   --------------------------------------------------------------------------- */
+.visually-hidden,
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.text-gold  { color: var(--rh-gold); }
+.text-blue  { color: var(--rh-blue); }
+.text-center { text-align: center; }
+.text-muted { color: var(--rh-text-muted); font-size: 0.9rem; }
+
+/* Drupal "hidden" utility */
+[hidden] { display: none !important; }
+
+/* =============================================================================
+   Custom block & list styles
+   ============================================================================= */
+
+b { font-weight: bold; }
+
+/* ---------------------------------------------------------------------------
+   .custom-block — Views block with label/value field rows
+   --------------------------------------------------------------------------- */
+.custom-block {
+  margin-bottom: 2em;
+}
+
+.custom-block .views-field {
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--rh-border);
+}
+
+.custom-block .views-label {
+  color: var(--rh-text-muted);
+  font-size: 0.75em;
+  float: left;
+}
+
+.custom-block .field-content {
+  margin-left: 20%;
+}
+
+.custom-block .field-content p {
+  margin: 0;
+}
+/*
+.custom-block a {
+  text-decoration: none;
+}
+
+.custom-block a:hover {
+  text-decoration: underline;
+}
+*/
+.custom-block .edit-link {
+  font-size: 0.6em;
+  float: right;
+}
+
+/* ---------------------------------------------------------------------------
+   .block__title — Views/custom block heading
+   --------------------------------------------------------------------------- */
+.block__title {
+  font-size: 1.25em;
+  border-bottom: 2px solid var(--rh-border);
+  padding-bottom: 0.35em;
+  margin-bottom: 0.6em;
+}
+
+/* ---------------------------------------------------------------------------
+   .custom-list — Views list display
+   --------------------------------------------------------------------------- */
+.custom-list {
+  margin-bottom: 2em;
+}
+
+.custom-list .view-content {
+  display: block;
+}
+
+.custom-list .views-row {
+  padding: 0.25em 0;
+  border-bottom: 1px solid var(--rh-border);
+}
+
+.custom-list .id-style {
+  font-size: 0.75em;
+  color: var(--rh-text-muted);
+}
+
+/* ---------------------------------------------------------------------------
+   Layout regions — spacing between columns/regions in block displays
+   --------------------------------------------------------------------------- */
+.layout__region {
+  padding: 1rem;
+}
+
+/* ---------------------------------------------------------------------------
+   .attribution — centred small-print / image credits
+   --------------------------------------------------------------------------- */
+.attribution {
+  font-size: 75%;
+  text-align: center;
+  color: var(--rh-text-muted);
+}

@@ -1,0 +1,23 @@
+uuid: 6cf5414b-6e22-4481-b8d8-a5ace1457719
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:cf29f4e7-9bab-4756-bc4c-87e65844bf89'
+  module:
+    - block_content
+  theme:
+    - royal_heritage
+id: royal_heritage_copyrightnotice
+theme: royal_heritage
+region: footer_bottom
+weight: 0
+provider: null
+plugin: 'block_content:cf29f4e7-9bab-4756-bc4c-87e65844bf89'
+settings:
+  id: 'block_content:cf29f4e7-9bab-4756-bc4c-87e65844bf89'
+  label: 'Copyright notice'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

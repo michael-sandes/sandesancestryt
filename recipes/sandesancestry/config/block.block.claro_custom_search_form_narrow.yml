@@ -1,0 +1,23 @@
+uuid: 5dd56892-7e75-412f-a393-d1bca7dc6a44
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - claro_custom
+_core:
+  default_config_hash: _nZjxxdypO6xrOAJkCYD81v0L7wh2zbCAVO7_C-UKIc
+id: claro_custom_search_form_narrow
+theme: claro_custom
+region: primary_menu
+weight: -4
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (narrow)'
+  label_display: '0'
+  provider: search
+  page_id: null
+visibility: {  }

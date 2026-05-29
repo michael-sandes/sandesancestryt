@@ -1,0 +1,45 @@
+uuid: a43c0b5b-7894-4a26-8068-2c7dd4bf0dad
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.family
+    - field.field.genealogy.family.field_children
+    - field.field.genealogy.family.field_husband
+    - field.field.genealogy.family.field_wife
+id: genealogy.family.default
+targetEntityType: genealogy
+bundle: family
+mode: default
+content:
+  field_children:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_husband:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_wife:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

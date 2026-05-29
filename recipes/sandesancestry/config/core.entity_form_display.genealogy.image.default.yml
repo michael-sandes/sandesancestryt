@@ -1,0 +1,65 @@
+uuid: b14546d3-0b20-41d7-aef3-defb0f7e2d53
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.image
+    - field.field.genealogy.image.field_attribution
+    - field.field.genealogy.image.field_caption
+    - field.field.genealogy.image.field_content
+    - field.field.genealogy.image.field_image
+    - field.field.genealogy.image.field_media_tags
+    - image.style.thumbnail
+  module:
+    - image
+    - text
+id: genealogy.image.default
+targetEntityType: genealogy
+bundle: image
+mode: default
+content:
+  field_attribution:
+    type: text_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_caption:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_content:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 20
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 4
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_media_tags:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

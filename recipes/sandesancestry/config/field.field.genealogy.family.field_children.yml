@@ -1,0 +1,25 @@
+uuid: 10bab3ea-369d-4b7a-9176-3a5aa42aa5c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.family
+    - field.storage.genealogy.field_children
+id: genealogy.family.field_children
+field_name: field_children
+entity_type: genealogy
+bundle: family
+label: Children
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: people
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

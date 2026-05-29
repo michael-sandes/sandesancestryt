@@ -1,0 +1,22 @@
+uuid: 2d40eaf1-d235-4d44-92bf-ae8c93af6d70
+langcode: en
+status: true
+dependencies:
+  theme:
+    - royal_heritage
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: royal_heritage_primary_local_tasks
+theme: royal_heritage
+region: content
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

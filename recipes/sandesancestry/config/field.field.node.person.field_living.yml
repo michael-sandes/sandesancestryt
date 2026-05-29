@@ -1,0 +1,23 @@
+uuid: b081c620-a471-4f07-bf4d-1936dec82270
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_living
+    - node.type.person
+id: node.person.field_living
+field_name: field_living
+entity_type: node
+bundle: person
+label: Living
+description: "Check this box if still alive<br>\r\n<small>You should consider managing Content Access if alive.</small>"
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,29 @@
+uuid: 6febfbb7-aa79-48e9-bf41-3824952871e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.storage.genealogy.field_event_description
+    - taxonomy.vocabulary.event_descriptions
+id: genealogy.event.field_event_description
+field_name: field_event_description
+entity_type: genealogy
+bundle: event
+label: 'Event description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      event_descriptions: event_descriptions
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

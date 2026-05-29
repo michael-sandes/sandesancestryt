@@ -1,0 +1,113 @@
+uuid: 0d6431ce-f97d-4097-8b61-6b3590615f80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.citation.field_citation_id
+    - field.field.node.citation.field_documents
+    - field.field.node.citation.field_notes
+    - field.field.node.citation.field_source
+    - field.field.node.citation.field_url
+    - node.type.citation
+    - views.view.citations
+    - views.view.events
+    - views.view.images
+    - views.view.people
+  module:
+    - file
+    - layout_builder
+    - layout_discovery
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_widths: 67-33
+        components:
+          bef2af11-9d5b-4f08-af2f-4305bd981548:
+            uuid: bef2af11-9d5b-4f08-af2f-4305bd981548
+            region: first
+            configuration:
+              id: 'views_block:citations-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+          dcbfffb8-cba7-4d2c-a917-962d917db86d:
+            uuid: dcbfffb8-cba7-4d2c-a917-962d917db86d
+            region: second
+            configuration:
+              id: 'views_block:images-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+        components:
+          cf280145-4b0d-4ecd-a9d5-1f090888f99d:
+            uuid: cf280145-4b0d-4ecd-a9d5-1f090888f99d
+            region: content
+            configuration:
+              id: 'views_block:people-block_3'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+            weight: 0
+            additional: {  }
+          56bda4e5-aa8d-4ffc-919c-af9aa1895eb6:
+            uuid: 56bda4e5-aa8d-4ffc-919c-af9aa1895eb6
+            region: content
+            configuration:
+              id: 'views_block:events-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: null
+              exposed: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.citation.default
+targetEntityType: node
+bundle: citation
+mode: default
+content:
+  field_documents:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: first
+hidden:
+  field_citation_id: true
+  field_notes: true
+  field_source: true
+  field_url: true
+  links: true

@@ -1,0 +1,25 @@
+uuid: 07159258-c824-46a9-8562-113d9957edae
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.storage.genealogy.field_citations
+id: genealogy.event.field_citations
+field_name: field_citations
+entity_type: genealogy
+bundle: event
+label: Citations
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: citations
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,28 @@
+uuid: 08507711-1515-40c5-88e4-ab8e4f0462eb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c333373f-9209-4f72-917d-3c8010d4bc41'
+  module:
+    - block_content
+    - system
+  theme:
+    - royal_heritage
+id: royal_heritage_aboutme
+theme: royal_heritage
+region: sidebar_first
+weight: -6
+provider: null
+plugin: 'block_content:c333373f-9209-4f72-917d-3c8010d4bc41'
+settings:
+  id: 'block_content:c333373f-9209-4f72-917d-3c8010d4bc41'
+  label: 'About me'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

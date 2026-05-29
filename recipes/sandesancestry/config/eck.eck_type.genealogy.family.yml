@@ -1,0 +1,9 @@
+uuid: c9a6b55b-97ac-469c-8e86-d4d68628fc96
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.genealogy
+name: Family
+type: family
+description: ''

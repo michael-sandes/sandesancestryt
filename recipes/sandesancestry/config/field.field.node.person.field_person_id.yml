@@ -1,0 +1,19 @@
+uuid: f8c7099e-3049-4e36-adbf-9617febf3e38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_id
+    - node.type.person
+id: node.person.field_person_id
+field_name: field_person_id
+entity_type: node
+bundle: person
+label: 'Person ID'
+description: 'Enter the <b>Person ID</b> in the recommended format.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

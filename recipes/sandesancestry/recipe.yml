@@ -1,0 +1,86 @@
+name: 'SandesAncestry Genealogy Site'
+description: 'Genealogy site with custom content types (Person, Pedigree, Place, Citation, Source), ECK-based genealogy entities (Event, Family, Image), taxonomy vocabularies, pathauto URL patterns, custom views, and the Royal Heritage (royal blue & gold) theme. Requires the royal_heritage and claro_custom custom themes to be present in the codebase.'
+type: 'Site'
+
+install:
+  # Core modules
+  - big_pipe
+  - block
+  - block_content
+  - breakpoint
+  - ckeditor5
+  - config
+  - contextual
+  - datetime
+  - dblog
+  - dynamic_page_cache
+  - editor
+  - field
+  - field_ui
+  - file
+  - filter
+  - image
+  - layout_builder
+  - layout_discovery
+  - link
+  - menu_link_content
+  - menu_ui
+  - node
+  - options
+  - page_cache
+  - path
+  - path_alias
+  - search
+  - taxonomy
+  - text
+  - toolbar
+  - user
+  - views
+  - views_ui
+  # Contrib modules
+  - add_content_by_bundle
+  - admin_toolbar
+  - admin_toolbar_tools
+  - block_visibility_groups
+  - block_visibility_groups_admin
+  - content_access
+  - ctools
+  - ctools_block
+  - ctools_views
+  - easy_breadcrumb
+  - eck
+  - glightbox
+  - pathauto
+  - token
+  - toolbar_menu
+  # Base themes (core)
+  - stable9
+  - claro
+  # Custom themes — must be present in web/themes/custom/ before applying this recipe
+  - royal_heritage
+  - claro_custom
+
+config:
+  # Only import config that does not already exist, so the recipe is safe to
+  # apply to an existing Drupal site without overwriting unrelated settings.
+  strict: false
+  actions:
+    system.theme:
+      simpleConfigUpdate:
+        default: royal_heritage
+        admin: claro_custom
+    node.settings:
+      simpleConfigUpdate:
+        use_admin_theme: true
+    system.site:
+      simpleConfigUpdate:
+        name: 'Sandes Ancestry'
+        slogan: 'A history of the Sandes family of Ireland'
+        page:
+          front: /node/1
+    user.role.anonymous:
+      grantPermission: 'access content'
+    user.role.authenticated:
+      grantPermissions:
+        - 'access content'
+        - 'delete own files'

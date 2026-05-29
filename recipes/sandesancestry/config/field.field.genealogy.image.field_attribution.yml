@@ -1,0 +1,22 @@
+uuid: 50076158-dcc4-4dfd-8aff-c50d992113a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.image
+    - field.storage.genealogy.field_attribution
+  module:
+    - text
+id: genealogy.image.field_attribution
+field_name: field_attribution
+entity_type: genealogy
+bundle: image
+label: Attribution
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

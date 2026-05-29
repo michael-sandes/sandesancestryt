@@ -1,0 +1,37 @@
+uuid: a94620b7-439a-4891-bfb1-f4ca05284b24
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_result
+    - field.field.node.person.body
+    - field.field.node.person.field_citations
+    - field.field.node.person.field_documents
+    - field.field.node.person.field_gender
+    - field.field.node.person.field_living
+    - field.field.node.person.field_notes
+    - field.field.node.person.field_pedigree
+    - field.field.node.person.field_person_id
+    - node.type.person
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.person.search_result
+targetEntityType: node
+bundle: person
+mode: search_result
+content: {  }
+hidden:
+  body: true
+  field_citations: true
+  field_documents: true
+  field_gender: true
+  field_living: true
+  field_notes: true
+  field_pedigree: true
+  field_person_id: true
+  links: true

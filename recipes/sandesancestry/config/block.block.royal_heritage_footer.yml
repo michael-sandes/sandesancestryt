@@ -1,0 +1,25 @@
+uuid: b002f80d-d38d-4bf1-8a61-d8c13a9afe23
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - royal_heritage
+id: royal_heritage_footer
+theme: royal_heritage
+region: footer_first
+weight: -7
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Quick Links'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

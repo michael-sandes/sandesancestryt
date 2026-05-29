@@ -1,0 +1,140 @@
+{#
+/**
+ * @file
+ * Royal Heritage theme: page.html.twig
+ *
+ * Layout:
+ *   - Site header  (branding + header region)
+ *   - Primary navigation
+ *   - Highlighted  (optional)
+ *   - Breadcrumb   (optional)
+ *   - Main:  content (left) + sidebar_first (right)
+ *   - Footer: three columns + bottom bar
+ *
+ * Available variables:
+ *   - page.header, page.primary_menu, page.highlighted,
+ *     page.breadcrumb, page.content, page.sidebar_first,
+ *     page.footer_first, page.footer_second, page.footer_third,
+ *     page.footer_bottom
+ *   - node (when a node is being rendered)
+ *   - is_front
+ *   - logged_in
+ */
+#}
+
+{# ─── HEADER ──────────────────────────────────────────────────────────────── #}
+<header class="site-header" role="banner">
+  <div class="layout-container">
+    <div class="site-header__inner">
+
+      {# The Site branding block lives in this region (weight -10) so it
+         always renders first; any additional header blocks follow it.
+         The gold ornament divider is injected via CSS when siblings exist. #}
+      <div class="region-header" role="banner">
+        {{ page.header }}
+      </div>
+
+    </div>{# /.site-header__inner #}
+  </div>{# /.layout-container #}
+</header>{# /.site-header #}
+
+{# ─── PRIMARY NAVIGATION ──────────────────────────────────────────────────── #}
+{% if page.primary_menu %}
+  <div class="site-nav">
+    <div class="layout-container">
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"
+              aria-label="{{ 'Toggle menu'|t }}">
+        ☰ {{ 'Menu'|t }}
+      </button>
+      <div class="region-primary-menu" id="primary-menu">
+        {{ page.primary_menu }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{# ─── HIGHLIGHTED ─────────────────────────────────────────────────────────── #}
+{# Always render — BigPipe lazy-builder placeholders need a DOM container.
+   An empty wrapper has no visual impact; CSS adds chrome only when
+   .messages are present. #}
+<div class="region-highlighted-wrapper">
+  <div class="layout-container">
+    {{ page.highlighted }}
+  </div>
+</div>
+
+{# ─── BREADCRUMB ──────────────────────────────────────────────────────────── #}
+{% if page.breadcrumb %}
+  <div class="site-breadcrumb">
+    <div class="layout-container">
+      {{ page.breadcrumb }}
+    </div>
+  </div>
+{% endif %}
+
+{# ─── MAIN CONTENT ────────────────────────────────────────────────────────── #}
+<div class="layout-main-wrapper">
+  <div class="layout-container">
+
+    {# Determine layout class based on sidebar presence #}
+    <div class="layout-main{% if page.sidebar_first %} has-sidebar{% endif %}">
+
+      {# Content column #}
+      <main class="layout-content" id="main-content" role="main">
+        <a id="main-content" tabindex="-1"></a>
+
+        {{ page.content }}
+      </main>{# /.layout-content #}
+
+      {# Sidebar #}
+      {% if page.sidebar_first %}
+        <aside class="layout-sidebar-first" role="complementary"
+               aria-label="{{ 'Sidebar'|t }}">
+          <div class="region-sidebar-first">
+            {{ page.sidebar_first }}
+          </div>
+        </aside>
+      {% endif %}
+
+    </div>{# /.layout-main #}
+  </div>{# /.layout-container #}
+</div>{# /.layout-main-wrapper #}
+
+{# ─── FOOTER ──────────────────────────────────────────────────────────────── #}
+<footer class="site-footer" role="contentinfo">
+
+  <div class="layout-container">
+
+    {# Three-column widget area #}
+    {% if page.footer_first or page.footer_second or page.footer_third %}
+      <div class="footer-widgets">
+        {% if page.footer_first %}
+          <div class="region-footer-first">
+            {{ page.footer_first }}
+          </div>
+        {% endif %}
+        {% if page.footer_second %}
+          <div class="region-footer-second">
+            {{ page.footer_second }}
+          </div>
+        {% endif %}
+        {% if page.footer_third %}
+          <div class="region-footer-third">
+            {{ page.footer_third }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {# Bottom bar #}
+    {% if page.footer_bottom %}
+      <div class="footer-bottom">
+        <div class="region-footer-bottom">
+          {{ page.footer_bottom }}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>{# /.layout-container #}
+
+</footer>{# /.site-footer #}

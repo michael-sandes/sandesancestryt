@@ -1,0 +1,9 @@
+uuid: 195f850f-05d1-4147-920c-b3b70eed3152
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_entity_type.genealogy
+name: image
+type: image
+description: ''

@@ -1,0 +1,20 @@
+uuid: 99c88eb5-2759-4724-b05e-9d1795d9283d
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - node
+id: genealogy.field_content
+field_name: field_content
+entity_type: genealogy
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

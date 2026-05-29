@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Royal Heritage theme: breadcrumb.html.twig
+ *
+ * Available variables:
+ *   - breadcrumb: array of items, each with:
+ *       - url  (string, may be empty for the current page)
+ *       - text (string)
+ */
+#}
+{% if breadcrumb %}
+  <nav class="rh-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+    <ol class="rh-breadcrumb__list">
+      {% for item in breadcrumb %}
+        <li class="rh-breadcrumb__item">
+          {%- if item.url -%}
+            <a class="rh-breadcrumb__link" href="{{ item.url }}">{{ item.text }}</a>
+          {%- else -%}
+            <span class="rh-breadcrumb__current" aria-current="page">{{ item.text }}</span>
+          {%- endif -%}
+          {%- if not loop.last -%}
+            <span class="rh-breadcrumb__sep" aria-hidden="true">›</span>
+          {%- endif -%}
+        </li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Royal Heritage theme: block.html.twig
+ *
+ * Available variables:
+ *   - plugin_id, entity_id, bundle, view_mode, label
+ *   - content, attributes, title_attributes, content_attributes
+ *   - title_prefix, title_suffix
+ *   - in_preview
+ *
+ * Note: the page title block uses block--page-title-block.html.twig directly,
+ * so no special-casing is needed here.
+ */
+#}
+<div{{ attributes.addClass('block', 'block-' ~ configuration.provider|clean_class, 'block-' ~ plugin_id|clean_class) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.addClass('block-title') }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+  <div{{ content_attributes.addClass('block-content') }}>
+    {{ content }}
+  </div>
+</div>

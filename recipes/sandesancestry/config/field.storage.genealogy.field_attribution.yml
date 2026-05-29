@@ -1,0 +1,20 @@
+uuid: 7d7cf8cf-ab65-4e59-b5b6-9f9e80d0ae50
+langcode: en
+status: true
+dependencies:
+  module:
+    - eck
+    - text
+id: genealogy.field_attribution
+field_name: field_attribution
+entity_type: genealogy
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

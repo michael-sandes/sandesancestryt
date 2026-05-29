@@ -1,0 +1,90 @@
+uuid: f022fdd7-d6ce-4891-93ce-5b7fe3cac9c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - eck.eck_type.genealogy.event
+    - field.field.genealogy.event.field_citations
+    - field.field.genealogy.event.field_event_date
+    - field.field.genealogy.event.field_event_description
+    - field.field.genealogy.event.field_event_notes
+    - field.field.genealogy.event.field_event_place
+    - field.field.genealogy.event.field_event_type
+    - field.field.genealogy.event.field_family
+    - field.field.genealogy.event.field_person
+  module:
+    - text
+id: genealogy.event.default
+targetEntityType: genealogy
+bundle: event
+mode: default
+content:
+  field_citations:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_date:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_description:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_notes:
+    type: text_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_place:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 20
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_event_type:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_family:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_person:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

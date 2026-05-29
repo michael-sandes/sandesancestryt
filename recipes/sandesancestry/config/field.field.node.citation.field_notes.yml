@@ -1,0 +1,24 @@
+uuid: 97883102-470c-49af-a031-38f68b7d50a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes
+    - filter.format.html_no_editor
+    - node.type.citation
+  module:
+    - text
+id: node.citation.field_notes
+field_name: field_notes
+entity_type: node
+bundle: citation
+label: Transcript
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - html_no_editor
+field_type: text_long

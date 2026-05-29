@@ -1,0 +1,23 @@
+uuid: 59075877-0399-4534-bc51-994e47df3c08
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.citation
+  module:
+    - node
+id: citation
+label: Citation
+type: 'canonical_entities:node'
+pattern: '/citations/[node:field_citation_id]'
+selection_criteria:
+  c40b234c-83e3-48f6-8c33-fec37d38a79e:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      citation: citation
+selection_logic: and
+weight: 0
+relationships: {  }

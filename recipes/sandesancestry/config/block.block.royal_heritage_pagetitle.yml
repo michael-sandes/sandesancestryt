@@ -1,0 +1,18 @@
+uuid: 65ee89c5-dd8c-42e0-8ca6-dad8d17790ab
+langcode: en
+status: true
+dependencies:
+  theme:
+    - royal_heritage
+id: royal_heritage_pagetitle
+theme: royal_heritage
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
