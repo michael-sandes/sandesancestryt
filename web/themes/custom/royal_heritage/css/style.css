@@ -534,6 +534,14 @@ li.rh-breadcrumb__item {
   min-width: 0; /* prevent overflow */
 }
 
+.layout-content a {
+  text-decoration: none;
+}
+.layout-content a:hover,
+.layout-content a:focus {
+  text-decoration: underline;
+}
+
 /* ---------------------------------------------------------------------------
    SIDEBAR
    --------------------------------------------------------------------------- */
