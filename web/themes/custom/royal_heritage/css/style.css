@@ -4,7 +4,7 @@
    ============================================================================= */
 
 /* Google Fonts import */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Cinzel:wght@400;600;700&display=swap');
 
 /* ---------------------------------------------------------------------------
    CSS Custom Properties
@@ -31,7 +31,7 @@
   /* Typography */
   --font-display:     'Cinzel', Georgia, serif;
   --font-heading:     'Playfair Display', Georgia, serif;
-  --font-body:        'Montserrat', Arial, sans-serif;
+  --font-body:        'Google Sans Flex', Arial, sans-serif;
 
   /* Spacing */
   --gap:              1.5rem;
@@ -139,7 +139,7 @@ figcaption {
   font-style: italic;
   color: var(--rh-text-muted);
   border-left: 3px solid var(--rh-gold);
-  background: var(--rh-gold-pale);
+  background: var(--rh-blue-pale);
   border-radius: 0 var(--radius) var(--radius) 0;
   line-height: 1.5;
   text-align: center;
