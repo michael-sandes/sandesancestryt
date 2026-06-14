@@ -1,0 +1,36 @@
+global-styles:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+
+color-scheme.burgundy_sage:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/burgundy-sage.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
+color-scheme.sepia_antique_gold:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/sepia-antique-gold.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
+color-scheme.slate_rose_gold:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/slate-rose-gold.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
+global-scripts:
+  version: VERSION
+  js:
+    js/sandes_ancestry.js: {}
+  dependencies:
+    - core/drupal

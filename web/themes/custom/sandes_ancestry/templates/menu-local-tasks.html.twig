@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Sandes Ancestry theme: menu-local-tasks.html.twig
+ *
+ * Wraps the primary (and optional secondary) local task tab lists.
+ *
+ * Available variables:
+ *   - primary   : render array of primary local task items
+ *   - secondary : render array of secondary local task items
+ */
+#}
+{% if primary %}
+  <nav class="sa-tabs" aria-label="{{ 'Page actions'|t }}">
+    <ul class="sa-tabs__list sa-tabs__list--primary">
+      {{ primary }}
+    </ul>
+  </nav>
+{% endif %}
+
+{% if secondary %}
+  <nav class="sa-tabs sa-tabs--secondary" aria-label="{{ 'Secondary page actions'|t }}">
+    <ul class="sa-tabs__list sa-tabs__list--secondary">
+      {{ secondary }}
+    </ul>
+  </nav>
+{% endif %}

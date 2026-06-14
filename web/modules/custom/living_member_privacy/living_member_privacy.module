@@ -78,6 +78,13 @@ function living_member_privacy_node_view_alter(array &$build, EntityInterface $e
   $build['#cache']['contexts'][] = 'user.roles:authenticated';
 
   if (\Drupal::currentUser()->isAuthenticated()) {
+    $build['living_member_privacy_restricted_notice'] = [
+      '#type'       => 'html_tag',
+      '#tag'        => 'div',
+      '#value'      => t('Restricted Content. Accessible only by authenticated users.'),
+      '#attributes' => ['class' => ['living-member-privacy-restricted-notice']],
+      '#weight'     => -100,
+    ];
     return;
   }
 

@@ -1,0 +1,7 @@
+sandes_ancestry.settings:
+  type: theme_settings
+  label: 'Sandes Ancestry settings'
+  mapping:
+    color_scheme:
+      type: string
+      label: 'Colour scheme'

@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * @file
+ * Sandes Ancestry theme functions and preprocess hooks.
+ */
+
+/**
+ * Colour schemes available via the theme settings form.
+ *
+ * Keyed by machine name; value is the human-readable label. The default
+ * "Emerald & Bronze" scheme lives in style.css itself, so it has no
+ * corresponding library — the others are loaded as additional stylesheets
+ * that override the colour/typography custom properties.
+ */
+function sandes_ancestry_color_scheme_options() {
+  return [
+    'emerald_bronze' => t('Emerald & Bronze (default)'),
+    'burgundy_sage' => t('Burgundy & Sage'),
+    'sepia_antique_gold' => t('Sepia & Antique Gold'),
+    'slate_rose_gold' => t('Slate & Rose Gold'),
+  ];
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function sandes_ancestry_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $form['sandes_ancestry_color_scheme'] = [
+    '#type' => 'details',
+    '#title' => t('Colour scheme'),
+    '#open' => TRUE,
+    '#weight' => -10,
+  ];
+  $form['sandes_ancestry_color_scheme']['color_scheme'] = [
+    '#type' => 'select',
+    '#title' => t('Colour scheme'),
+    '#description' => t('Choose the colour palette and typography used throughout the Sandes Ancestry theme.'),
+    '#options' => sandes_ancestry_color_scheme_options(),
+    '#default_value' => theme_get_setting('color_scheme', 'sandes_ancestry') ?: 'emerald_bronze',
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function sandes_ancestry_preprocess_html(&$variables) {
+  try {
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (\Exception $e) {
+    $is_front = FALSE;
+  }
+  if ($is_front) {
+    $variables['attributes']['class'][] = 'is-front';
+  }
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $variables['attributes']['class'][] = 'user-logged-in';
+  }
+
+  // Active colour scheme — attach its override stylesheet (if any) and
+  // expose it as a body class for scheme-specific CSS hooks.
+  $color_scheme = theme_get_setting('color_scheme', 'sandes_ancestry') ?: 'emerald_bronze';
+  $variables['attributes']['class'][] = 'color-scheme-' . str_replace('_', '-', $color_scheme);
+  if ($color_scheme !== 'emerald_bronze') {
+    $variables['#attached']['library'][] = 'sandes_ancestry/color-scheme.' . $color_scheme;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function sandes_ancestry_preprocess_page(&$variables) {
+  // Note: site_name and site_slogan are provided by Drupal core's
+  // template_preprocess_page() and come from the System Branding block.
+  // No need to re-declare them here.
+  //
+  // Page titles are handled entirely by the page_title_block placed in the
+  // content region — it resolves the correct title for every route type
+  // (nodes, views, taxonomy terms, user pages, etc.).
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function sandes_ancestry_preprocess_node(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $variables['date'] = \Drupal::service('date.formatter')
+    ->format($node->getCreatedTime(), 'long');
+  $variables['author_name'] = $node->getOwner()->getDisplayName();
+}

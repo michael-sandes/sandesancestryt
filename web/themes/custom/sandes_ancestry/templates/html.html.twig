@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Sandes Ancestry theme: html.html.twig
+ *
+ * Drupal 11 — uses correct <head-placeholder>, <css-placeholder>,
+ * <js-placeholder> and <js-bottom-placeholder> tags.
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  <body{{ attributes.addClass(body_classes) }}>
+    {#
+      Keyboard navigation skip link — must be the very first focusable element.
+    #}
+    <a href="#main-content" class="skip-link visually-hidden focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>
