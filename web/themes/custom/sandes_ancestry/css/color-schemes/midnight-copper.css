@@ -1,0 +1,39 @@
+/* =============================================================================
+   Sandes Ancestry Theme — Colour Scheme Override
+   Palette: Midnight & Copper
+   Loaded AFTER style.css — redefines the custom properties that drive
+   colour and typography throughout the theme.
+   ============================================================================= */
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Raleway:ital,opsz,wght@0,6..144,400;0,6..144,500;0,6..144,600;1,6..144,400&display=swap');
+
+:root {
+  /* Core palette */
+  --sa-primary-deep:    #0d1520;   /* midnight near-black */
+  --sa-primary:         #1e3a5f;   /* deep midnight navy */
+  --sa-primary-mid:     #2d5585;   /* rich deep blue */
+  --sa-primary-light:   #4a7ab0;   /* mid blue for hover */
+  --sa-primary-pale:    #d8e6f3;   /* pale blue tint for backgrounds */
+
+  --sa-accent:        #b5622a;   /* rich copper */
+  --sa-accent-bright: #d4894f;   /* bright copper accent */
+  --sa-accent-deep:   #8a4520;   /* deep copper / dark accent */
+  --sa-accent-pale:   #f5e4d5;   /* pale copper for subtle fills */
+
+  --sa-white:         #ffffff;
+  --sa-cream:         #f6f8fb;   /* cool near-white */
+  --sa-text:          #0f1e30;
+  --sa-text-muted:    #5a6e80;
+  --sa-border:        #c5d5e8;
+
+  /* RGB triplets — used for rgba() overlays that adapt with the active scheme */
+  --sa-accent-rgb:       181,98,42;
+  --sa-primary-deep-rgb: 13,21,32;
+  --sa-primary-mid-rgb:  45,85,133;
+
+  /* Typography */
+  --font-display:     'Playfair Display', Georgia, serif;
+  --font-heading:     'Playfair Display', Georgia, serif;
+  --font-body:        'Raleway', Arial, sans-serif;
+}

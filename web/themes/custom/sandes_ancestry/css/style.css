@@ -63,7 +63,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   scroll-behavior: smooth;
 }
 
@@ -283,7 +283,8 @@ figcaption {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  width: 100%;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 /* Branding takes up remaining space so extra blocks are pushed right */
@@ -301,6 +302,82 @@ figcaption {
   background: linear-gradient(to bottom, transparent, var(--sa-accent), transparent);
   opacity: 0.6;
   margin-right: 1.5rem;
+}
+
+/* ---------------------------------------------------------------------------
+   HEADER SEARCH REGION
+   --------------------------------------------------------------------------- */
+.region-header-search {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(var(--sa-accent-rgb), 0.35);
+}
+
+/* Hide the block title in the header */
+.region-header-search .block-title {
+  display: none;
+}
+
+/* Search form layout */
+.region-header-search .block-search form,
+.region-header-search .block-search .form-search {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+/* Search input */
+.region-header-search .block-search input[type="search"] {
+  width: 210px;
+  padding: 0.5em 0.85em;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--sa-white);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(var(--sa-accent-rgb), 0.45);
+  border-right: none;
+  border-radius: var(--radius) 0 0 var(--radius);
+  transition: background var(--trans), border-color var(--trans), width var(--trans), box-shadow var(--trans);
+}
+
+.region-header-search .block-search input[type="search"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.region-header-search .block-search input[type="search"]:focus {
+  outline: none;
+  width: 265px;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--sa-accent-bright);
+  box-shadow: 0 0 0 2px rgba(var(--sa-accent-rgb), 0.3);
+}
+
+/* Search submit button */
+.region-header-search .block-search button[type="submit"],
+.region-header-search .block-search input[type="submit"] {
+  flex-shrink: 0;
+  background: var(--sa-accent);
+  color: var(--sa-primary-deep);
+  border: 1px solid var(--sa-accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.5em 0.9em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--trans), border-color var(--trans);
+}
+
+.region-header-search .block-search button[type="submit"]:hover,
+.region-header-search .block-search input[type="submit"]:hover {
+  background: var(--sa-accent-bright);
+  border-color: var(--sa-accent-bright);
 }
 
 /* ---------------------------------------------------------------------------
@@ -661,7 +738,7 @@ article.node,
    .custom-list), so we exclude those and only match the page display's
    own wrapper. */
 .block-system-main-block .views-element-container:not(.block):has(.custom-list) {
-  max-width: 800px;
+  max-width: none;
   margin-left: 0;
   margin-right: auto;
 }
@@ -1153,6 +1230,165 @@ ul.sa-tabs__list--secondary li.sa-tabs__item--active a {
 }
 
 /* ---------------------------------------------------------------------------
+   VIEWS TABLE
+   --------------------------------------------------------------------------- */
+
+/* Exposed filter form — input and button side by side */
+.views-exposed-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.views-exposed-form .form-item {
+  flex: 1 1 200px;
+  margin-bottom: 0;
+}
+
+.views-exposed-form .form-actions {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.views-exposed-form .form-actions input[type="submit"] {
+  width: auto;
+}
+
+/* Horizontal scroll container — applied to view-content when a table is present */
+.view .view-content {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table.views-table,
+.layout-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  background: var(--sa-white);
+}
+
+/* Column headers */
+table.views-table thead th,
+.layout-content table thead th {
+  background: var(--sa-primary);
+  color: var(--sa-white);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+table.views-table thead th:last-child,
+.layout-content table thead th:last-child {
+  border-right: none;
+}
+
+/* Accent stripe below the header row */
+table.views-table thead,
+.layout-content table thead {
+  border-bottom: 3px solid var(--sa-accent);
+}
+
+/* Sortable column links */
+table.views-table thead th a,
+.layout-content table thead th a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  transition: color var(--trans);
+}
+table.views-table thead th a:hover,
+.layout-content table thead th a:hover {
+  color: var(--sa-accent-bright);
+  text-decoration: none;
+}
+
+/* Sort direction indicators */
+table.views-table thead th.views-field a::after {
+  content: '⇕';
+  font-size: 0.65em;
+  opacity: 0.45;
+}
+table.views-table thead th.is-active a::after {
+  content: '↓';
+  color: var(--sa-accent-bright);
+  opacity: 1;
+}
+table.views-table thead th.is-active.views-sort-asc a::after {
+  content: '↑';
+}
+
+/* Body cells */
+table.views-table tbody td,
+.layout-content table tbody td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--sa-border);
+  vertical-align: middle;
+  color: var(--sa-text);
+}
+
+/* Alternating row shading */
+table.views-table tbody tr.odd,
+table.views-table tbody tr:nth-child(odd),
+.layout-content table tbody tr:nth-child(odd) {
+  background: var(--sa-white);
+}
+table.views-table tbody tr.even,
+table.views-table tbody tr:nth-child(even),
+.layout-content table tbody tr:nth-child(even) {
+  background: var(--sa-primary-pale);
+}
+
+/* Row hover highlight */
+table.views-table tbody tr:hover,
+.layout-content table tbody tr:hover {
+  background: rgba(var(--sa-primary-mid-rgb), 0.12);
+  transition: background var(--trans);
+}
+
+/* Last body row — no bottom border */
+table.views-table tbody tr:last-child td,
+.layout-content table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Footer / totals row */
+table.views-table tfoot td,
+.layout-content table tfoot td {
+  padding: 0.6rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--sa-text-muted);
+  background: var(--sa-primary-pale);
+  border-top: 2px solid var(--sa-border);
+}
+
+/* Optional caption */
+table.views-table caption,
+.layout-content table caption {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--sa-text-muted);
+  text-align: left;
+  padding: 0 0 0.75rem;
+  caption-side: top;
+}
+
+/* ---------------------------------------------------------------------------
    RESPONSIVE — Tablet
    --------------------------------------------------------------------------- */
 @media (max-width: 900px) {
@@ -1176,6 +1412,31 @@ ul.sa-tabs__list--secondary li.sa-tabs__item--active a {
     flex-wrap: wrap;
     gap: 0.75rem;
     padding: 1.25rem 1rem;
+  }
+
+  .region-header {
+    flex: 1 1 100%;
+  }
+
+  .region-header-search {
+    flex: 1 1 100%;
+    border-left: none;
+    border-top: 1px solid rgba(var(--sa-accent-rgb), 0.25);
+    padding-left: 0;
+    padding-top: 0.75rem;
+  }
+
+  .region-header-search .block-search input[type="search"] {
+    width: 100%;
+  }
+
+  .region-header-search .block-search input[type="search"]:focus {
+    width: 100%;
+  }
+
+  .region-header-search .block-search form,
+  .region-header-search .block-search .form-search {
+    width: 100%;
   }
 
   .header-ornament { display: none; }
@@ -1295,6 +1556,7 @@ b { font-weight: bold; }
 .custom-block .views-label {
   color: var(--sa-text-muted);
   font-size: 0.75em;
+  line-height: 1.75rem;
   float: left;
 }
 
@@ -1321,10 +1583,8 @@ b { font-weight: bold; }
 
 /* ---------------------------------------------------------------------------
    .block__title — Views/custom block heading
-   --------------------------------------------------------------------------- */
+   ---------------------------------------------------------------------------/
 .block__title {
-  font-size: 1.25em;
-  border-bottom: 2px solid var(--sa-border);
   padding-bottom: 0.35em;
   margin-bottom: 0.6em;
 }

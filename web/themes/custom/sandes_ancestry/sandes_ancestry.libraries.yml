@@ -28,6 +28,30 @@ color-scheme.slate_rose_gold:
   dependencies:
     - sandes_ancestry/global-styles
 
+color-scheme.charcoal_silver:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/charcoal-silver.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
+color-scheme.midnight_copper:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/midnight-copper.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
+color-scheme.teal_ochre:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/teal-ochre.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
 global-scripts:
   version: VERSION
   js:

@@ -1,6 +1,6 @@
 name: Sandes Ancestry
 type: theme
-description: 'A Sandes Ancestry Drupal 11 theme with four colour schemes.'
+description: 'A Sandes Ancestry Drupal 11 theme with seven colour schemes.'
 package: Custom
 core_version_requirement: ^10 || ^11
 base theme: stable9
@@ -11,6 +11,7 @@ libraries:
 
 regions:
   header: Header
+  header_search: 'Header Search'
   primary_menu: 'Primary Navigation'
   highlighted: Highlighted
   breadcrumb: Breadcrumb

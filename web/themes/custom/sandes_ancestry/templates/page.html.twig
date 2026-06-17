@@ -12,7 +12,7 @@
  *   - Footer: three columns + bottom bar
  *
  * Available variables:
- *   - page.header, page.primary_menu, page.highlighted,
+ *   - page.header, page.header_search, page.primary_menu, page.highlighted,
  *     page.breadcrumb, page.content, page.sidebar_first,
  *     page.footer_first, page.footer_second, page.footer_third,
  *     page.footer_bottom
@@ -33,6 +33,12 @@
       <div class="region-header" role="banner">
         {{ page.header }}
       </div>
+
+      {% if page.header_search %}
+        <div class="region-header-search" role="search" aria-label="{{ 'Site search'|t }}">
+          {{ page.header_search }}
+        </div>
+      {% endif %}
 
     </div>{# /.site-header__inner #}
   </div>{# /.layout-container #}

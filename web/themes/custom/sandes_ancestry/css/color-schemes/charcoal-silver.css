@@ -1,0 +1,39 @@
+/* =============================================================================
+   Sandes Ancestry Theme — Colour Scheme Override
+   Palette: Charcoal & Silver
+   Loaded AFTER style.css — redefines the custom properties that drive
+   colour and typography throughout the theme.
+   ============================================================================= */
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  /* Core palette */
+  --sa-primary-deep:    #191919;   /* near-black charcoal */
+  --sa-primary:         #3c3c3c;   /* dark charcoal */
+  --sa-primary-mid:     #585858;   /* mid charcoal */
+  --sa-primary-light:   #7e7e7e;   /* medium grey for hover */
+  --sa-primary-pale:    #e6e6e6;   /* light grey tint for backgrounds */
+
+  --sa-accent:        #7d8590;   /* steel/pewter grey */
+  --sa-accent-bright: #a8b0bb;   /* bright pewter accent */
+  --sa-accent-deep:   #52595f;   /* deep steel grey */
+  --sa-accent-pale:   #eaeef2;   /* pale steel for subtle fills */
+
+  --sa-white:         #ffffff;
+  --sa-cream:         #f4f4f4;   /* cool light grey, not warm cream */
+  --sa-text:          #1a1a1a;
+  --sa-text-muted:    #6a6a6a;
+  --sa-border:        #d0d0d0;
+
+  /* RGB triplets — used for rgba() overlays that adapt with the active scheme */
+  --sa-accent-rgb:       125,133,144;
+  --sa-primary-deep-rgb: 25,25,25;
+  --sa-primary-mid-rgb:  88,88,88;
+
+  /* Typography */
+  --font-display:     'EB Garamond', Georgia, serif;
+  --font-heading:     'EB Garamond', Georgia, serif;
+  --font-body:        'Crimson Pro', Georgia, serif;
+}
