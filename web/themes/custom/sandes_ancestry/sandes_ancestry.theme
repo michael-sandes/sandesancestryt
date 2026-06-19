@@ -22,6 +22,7 @@ function sandes_ancestry_color_scheme_options() {
     'charcoal_silver' => t('Charcoal & Silver'),
     'midnight_copper' => t('Midnight & Copper'),
     'teal_ochre' => t('Teal & Ochre'),
+    'nightfall_gold' => t('Nightfall & Gold (dark)'),
   ];
 }
 

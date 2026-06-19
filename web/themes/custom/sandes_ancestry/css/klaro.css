@@ -1,0 +1,84 @@
+/* =============================================================================
+   Klaro Cookie Consent — Sandes Ancestry Theme
+   Primary/accent colours adapt with the active colour scheme via --sa-* vars.
+   Background and text colours are hardcoded so the modal stays readable on
+   dark schemes (where --sa-cream and similar become near-black).
+   ============================================================================= */
+
+.klaro {
+  /* Primary colour drives links, button defaults, and focus rings */
+  --klaro-primary-color:               var(--sa-primary);
+
+  /* Links */
+  --klaro-link-color:                  var(--sa-primary);
+  --klaro-link-color-hover:            var(--sa-primary-light);
+  --klaro-link-decoration-line:        underline;
+  --klaro-link-decoration-line-hover:  none;
+
+  /* Buttons — accept / save / info */
+  --klaro-button-bg:                   var(--sa-primary);
+  --klaro-button-text-color:           #ffffff;
+  --klaro-button-border:               2px solid var(--sa-primary);
+  --klaro-button-border-radius:        var(--radius);
+  --klaro-button-padding:              0.55em 1.25em;
+  --klaro-button-font-size:            0.9rem;
+  --klaro-button-font-weight:          600;
+  --klaro-button-line-height:          1.4;
+  --klaro-button-bg-hover:             var(--sa-primary-deep);
+  --klaro-button-text-color-hover:     #ffffff;
+  --klaro-button-border-hover:         2px solid var(--sa-primary-deep);
+  --klaro-button-focus-outline:        2px solid var(--sa-accent);
+  --klaro-button-focus-outline-offset: 2px;
+  --klaro-button-focus-box-shadow:     none;
+
+  /* Dialog focus ring */
+  --klaro-dialog-focus-outline:    auto;
+  --klaro-dialog-focus-box-shadow:
+    0 0 0 2px var(--sa-accent),
+    0 4px 6px rgba(var(--sa-primary-deep-rgb), 0.2),
+    5px 5px 10px rgba(var(--sa-primary-deep-rgb), 0.15);
+
+  /* Toggle sliders */
+  --klaro-slider-bg:          #cfe0d2;
+  --klaro-slider-bg-active:   var(--sa-primary);
+  --klaro-slider-bg-required: var(--sa-accent);
+
+  /* Klaro base palette used by klaro.min.css
+     Dark variables drive the modal HEADER background and modal body TEXT —
+     so we use the scheme's primary colours here (they're always dark enough).
+     Light/white variables drive the modal BODY background — hardcoded so they
+     never go dark on dark colour schemes. */
+  --dark1: var(--sa-primary-deep);   /* modal header bg, body text colour */
+  --dark2: var(--sa-primary);        /* secondary dark surfaces, borders */
+  --dark3: var(--sa-primary-mid);
+
+  --light1: #f7f2e7;   /* text ON the dark header — hardcoded cream */
+  --light2: #dde8df;
+  --light3: #cfe0d2;
+
+  --white1: #ffffff;   /* hardcoded — must not follow dark scheme overrides */
+  --white2: #f7f2e7;   /* modal body background — hardcoded cream */
+  --white3: #eef3ef;
+
+  /* Typography */
+  --font-family:       var(--font-body);
+  --title-font-family: var(--font-display);
+  --font-size:         16px;
+}
+
+/* Decline button — accent outline to distinguish from accept */
+.klaro .cookie-modal .cm-btn.cm-btn-decline,
+.klaro .context-notice .cm-btn.cm-btn-decline,
+.klaro .cookie-notice .cm-btn.cm-btn-decline {
+  background-color: transparent;
+  color: var(--sa-accent);
+  border-color: var(--sa-accent);
+}
+
+.klaro .cookie-modal .cm-btn.cm-btn-decline:hover,
+.klaro .context-notice .cm-btn.cm-btn-decline:hover,
+.klaro .cookie-notice .cm-btn.cm-btn-decline:hover {
+  background-color: var(--sa-accent);
+  color: #ffffff;
+  border-color: var(--sa-accent);
+}

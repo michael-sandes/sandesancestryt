@@ -3,6 +3,7 @@ global-styles:
   css:
     theme:
       css/style.css: {}
+      css/klaro.css: {}
 
 color-scheme.burgundy_sage:
   version: VERSION
@@ -49,6 +50,14 @@ color-scheme.teal_ochre:
   css:
     theme:
       css/color-schemes/teal-ochre.css: {}
+  dependencies:
+    - sandes_ancestry/global-styles
+
+color-scheme.nightfall_gold:
+  version: VERSION
+  css:
+    theme:
+      css/color-schemes/nightfall-gold.css: {}
   dependencies:
     - sandes_ancestry/global-styles
 

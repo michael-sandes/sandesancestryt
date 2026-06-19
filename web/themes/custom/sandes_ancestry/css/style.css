@@ -1512,6 +1512,68 @@ table.views-table caption,
 }
 
 /* ---------------------------------------------------------------------------
+   GLIGHTBOX — Caption & UI overrides
+   The caption panel uses --sa-primary-deep (always the darkest tone in every
+   scheme) so it reads cleanly against the modal overlay regardless of the
+   active colour scheme.
+   --------------------------------------------------------------------------- */
+.glightbox-clean .gslide-description {
+  background: var(--sa-primary-deep);
+  border-top: 3px solid var(--sa-accent);
+}
+
+.glightbox-clean .gdesc-inner {
+  padding: 1.1rem 1.5rem 1.25rem;
+}
+
+.glightbox-clean .gslide-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--sa-accent-bright);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+
+.glightbox-clean .gslide-desc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+.glightbox-clean .gslide-desc a {
+  color: var(--sa-accent-bright);
+  text-decoration: underline;
+  text-decoration-color: var(--sa-accent);
+}
+.glightbox-clean .gslide-desc a:hover {
+  color: var(--sa-accent);
+}
+
+/* Nav & close buttons — accent border, accent fill on hover */
+.glightbox-clean .gprev,
+.glightbox-clean .gnext,
+.glightbox-clean .gclose {
+  background-color: rgba(var(--sa-primary-deep-rgb), 0.8);
+  border: 1px solid rgba(var(--sa-accent-rgb), 0.45);
+  border-radius: var(--radius);
+}
+.glightbox-clean .gprev:hover,
+.glightbox-clean .gnext:hover,
+.glightbox-clean .gclose:hover {
+  background-color: var(--sa-accent);
+  border-color: var(--sa-accent);
+}
+.glightbox-clean .gprev:hover path,
+.glightbox-clean .gnext:hover path,
+.glightbox-clean .gclose:hover path {
+  fill: var(--sa-primary-deep);
+}
+
+/* ---------------------------------------------------------------------------
    UTILITY CLASSES
    --------------------------------------------------------------------------- */
 .visually-hidden,

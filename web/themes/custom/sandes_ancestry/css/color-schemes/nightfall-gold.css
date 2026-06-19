@@ -1,0 +1,293 @@
+/* =============================================================================
+   Sandes Ancestry Theme — Colour Scheme Override
+   Palette: Nightfall & Gold
+   Loaded AFTER style.css — redefines the custom properties that drive
+   colour and typography throughout the theme, then adds element-level
+   overrides required for a true dark background.
+   ============================================================================= */
+
+/* Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ---------------------------------------------------------------------------
+   Custom Properties
+   Primary colours keep their "dark" role (header / nav / footer backgrounds).
+   Page background, text, and link colours are handled by explicit overrides
+   below because --sa-primary-mid etc. are reused for both background and text.
+   --------------------------------------------------------------------------- */
+:root {
+  /* Core palette — darks used in header/nav/footer/table-heads */
+  --sa-primary-deep:    #070b10;   /* near-black, header gradient deep end */
+  --sa-primary:         #101520;   /* dark navy, nav background */
+  --sa-primary-mid:     #18202e;   /* medium dark */
+  --sa-primary-light:   #26334a;   /* hover/focus highlight */
+  --sa-primary-pale:    #1c2130;   /* breadcrumb / subtle section bg */
+
+  --sa-accent:        #c89040;   /* warm old gold */
+  --sa-accent-bright: #dba95a;   /* bright gold accent */
+  --sa-accent-deep:   #8c6118;   /* deep gold */
+  --sa-accent-pale:   #201808;   /* very dark warm tone for blockquote/notice bg */
+
+  --sa-white:         #ffffff;
+  --sa-cream:         #13161d;   /* page body background — deep graphite */
+  --sa-text:          #dce3ee;   /* near-white body text */
+  --sa-text-muted:    #8990a0;   /* muted mid-grey for secondary text */
+  --sa-border:        #272e3e;   /* subtle dark border */
+
+  /* RGB triplets */
+  --sa-accent-rgb:       200,144,64;
+  --sa-primary-deep-rgb: 7,11,16;
+  --sa-primary-mid-rgb:  24,32,46;
+
+  /* Typography */
+  --font-display:     'Cinzel', Georgia, serif;
+  --font-heading:     'Cinzel', Georgia, serif;
+  --font-body:        'Inter', system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+   Page & Body
+   --------------------------------------------------------------------------- */
+body {
+  background: var(--sa-cream);
+  color: var(--sa-text);
+}
+
+/* ---------------------------------------------------------------------------
+   Typography — headings and links need light colours on dark bg
+   --------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--sa-accent-bright);
+}
+
+a {
+  color: var(--sa-accent);
+  text-decoration-color: var(--sa-accent-deep);
+}
+a:hover, a:focus {
+  color: var(--sa-accent-bright);
+  text-decoration-color: var(--sa-accent-bright);
+}
+
+blockquote {
+  background: var(--sa-accent-pale);
+  border-left-color: var(--sa-accent);
+  color: var(--sa-text-muted);
+}
+
+code, pre {
+  background: var(--sa-primary-pale);
+  color: var(--sa-text);
+}
+
+/* ---------------------------------------------------------------------------
+   Breadcrumb
+   --------------------------------------------------------------------------- */
+.sa-breadcrumb__link {
+  color: var(--sa-accent);
+}
+.sa-breadcrumb__link:hover {
+  color: var(--sa-accent-bright);
+}
+
+/* ---------------------------------------------------------------------------
+   Sidebar
+   --------------------------------------------------------------------------- */
+.region-sidebar-first .block {
+  background: var(--sa-primary-pale);
+  border-color: var(--sa-border);
+}
+
+.region-sidebar-first .block-title,
+.region-sidebar-first h2 {
+  color: var(--sa-accent-bright);
+  border-bottom-color: var(--sa-border);
+}
+
+.region-sidebar-first ul.menu a {
+  color: var(--sa-text);
+}
+.region-sidebar-first ul.menu a:hover,
+.region-sidebar-first ul.menu a.is-active {
+  color: var(--sa-accent-bright);
+}
+.region-sidebar-first ul.menu a.is-active {
+  color: var(--sa-accent);
+}
+.region-sidebar-first ul.menu li {
+  border-bottom-color: var(--sa-border);
+}
+
+/* ---------------------------------------------------------------------------
+   Content / Node cards
+   --------------------------------------------------------------------------- */
+.node,
+.view,
+article.node,
+.block-system-main-block .views-element-container:not(.block):has(.custom-list) {
+  background: var(--sa-primary-pale);
+  border-color: var(--sa-border);
+}
+
+h1.sa-page-title,
+.block-page-title h1,
+.block-page-title__content h1,
+h1.page-title {
+  color: var(--sa-accent-bright);
+  border-bottom-color: var(--sa-border);
+}
+
+.node__title {
+  color: var(--sa-accent-bright);
+}
+.node__title a {
+  color: inherit;
+}
+.node__title a:hover {
+  color: var(--sa-accent);
+  text-decoration-color: var(--sa-accent);
+}
+
+/* Tag links */
+.field--name-field-tags a,
+.tag-link {
+  background: var(--sa-primary-mid);
+  color: var(--sa-text);
+  border-color: var(--sa-border);
+}
+.field--name-field-tags a:hover {
+  background: var(--sa-accent-pale);
+  color: var(--sa-accent-bright);
+  border-color: var(--sa-accent);
+}
+
+/* ---------------------------------------------------------------------------
+   Forms & Inputs
+   --------------------------------------------------------------------------- */
+label {
+  color: var(--sa-text);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+textarea,
+select {
+  background: var(--sa-primary-mid);
+  color: var(--sa-text);
+  border-color: var(--sa-border);
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--sa-accent);
+  box-shadow: 0 0 0 3px rgba(var(--sa-accent-rgb), 0.2);
+}
+
+.button--secondary {
+  color: var(--sa-accent);
+  border-color: var(--sa-accent);
+}
+.button--secondary:hover {
+  background: var(--sa-accent);
+  color: var(--sa-primary-deep);
+}
+
+/* ---------------------------------------------------------------------------
+   Tabs (local tasks)
+   --------------------------------------------------------------------------- */
+li.sa-tabs__item a {
+  color: var(--sa-text-muted);
+}
+li.sa-tabs__item a:hover,
+li.sa-tabs__item a:focus {
+  background: var(--sa-accent-pale);
+  border-color: var(--sa-accent);
+  color: var(--sa-accent-bright);
+}
+
+ul.sa-tabs__list--secondary li.sa-tabs__item a {
+  color: var(--sa-text-muted);
+}
+ul.sa-tabs__list--secondary li.sa-tabs__item--active a {
+  background: var(--sa-primary-pale) !important;
+  border-color: var(--sa-border) !important;
+  color: var(--sa-accent-bright) !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Pager
+   --------------------------------------------------------------------------- */
+.pager__item a {
+  color: var(--sa-text-muted);
+  border-color: var(--sa-border);
+  background: var(--sa-primary-pale);
+}
+.pager__item a:hover {
+  background: var(--sa-accent);
+  border-color: var(--sa-accent);
+  color: var(--sa-primary-deep);
+}
+
+/* ---------------------------------------------------------------------------
+   Tables
+   --------------------------------------------------------------------------- */
+table.views-table,
+.layout-content table {
+  background: var(--sa-primary-pale);
+  color: var(--sa-text);
+}
+
+table.views-table tbody td,
+.layout-content table tbody td {
+  border-color: #404a60;
+  color: var(--sa-text);
+}
+
+/* Odd rows use --sa-white in base CSS — override to dark */
+table.views-table tbody tr.odd,
+table.views-table tbody tr:nth-child(odd),
+.layout-content table tbody tr:nth-child(odd) {
+  background: var(--sa-primary-pale);
+}
+
+/* Even rows — slightly darker for subtle zebra on dark bg */
+table.views-table tbody tr.even,
+table.views-table tbody tr:nth-child(even),
+.layout-content table tbody tr:nth-child(even) {
+  background: var(--sa-primary-mid);
+}
+
+table.views-table tbody tr:hover,
+.layout-content table tbody tr:hover {
+  background: rgba(var(--sa-accent-rgb), 0.12);
+}
+
+/* Footer / totals row */
+table.views-table tfoot td,
+.layout-content table tfoot td {
+  background: var(--sa-primary-mid);
+  border-top-color: var(--sa-border);
+}
+
+/* ---------------------------------------------------------------------------
+   Status / Notice messages
+   --------------------------------------------------------------------------- */
+.messages--status  { background: #0d2016; border-color: #2e8a5e; color: #6fcca0; }
+.messages--warning { background: var(--sa-accent-pale); border-color: var(--sa-accent); color: var(--sa-accent-bright); }
+.messages--error   { background: #200a0a; border-color: #c0392b; color: #f08080; }
+
+.living-member-privacy-notice,
+.living-member-privacy-restricted-notice {
+  background: var(--sa-accent-pale);
+  color: var(--sa-accent-bright);
+}
+
+/* ---------------------------------------------------------------------------
+   Highlighted / Messages region wrapper
+   --------------------------------------------------------------------------- */
+.region-highlighted-wrapper:has(.messages),
+.region-highlighted-wrapper:has([data-drupal-messages]:not(:empty)) {
+  background: var(--sa-accent-pale);
+  border-bottom-color: var(--sa-accent);
+}
