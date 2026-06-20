@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * SABootstrap theme: status-messages.html.twig
+ *
+ * Maps Drupal message types to Bootstrap alert classes.
+ */
+#}
+
+{% set type_map = {
+  'status':  'success',
+  'warning': 'warning',
+  'error':   'danger',
+} %}
+
+{% for type, messages in message_list %}
+  {% set bs_type = type_map[type] ?? 'info' %}
+  <div role="alert"
+       aria-label="{{ status_headings[type] }}"
+       class="alert alert-{{ bs_type }} alert-dismissible fade show mb-3">
+    {% if status_headings[type] %}
+      <h4 class="alert-heading visually-hidden">{{ status_headings[type] }}</h4>
+    {% endif %}
+    {% if messages|length > 1 %}
+      <ul class="mb-0">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {{ messages|first }}
+    {% endif %}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="{{ 'Close'|t }}"></button>
+  </div>
+{% endfor %}

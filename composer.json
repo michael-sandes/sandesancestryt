@@ -31,6 +31,21 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
+        "audit": {
+            "ignored-advisories": [
+                "PKSA-93qv-9n9h-6k6p",
+                "PKSA-k22t-f949-t9g6"
+            ]
+        },
+        "policy": {
+            "advisories": {
+                "ignore-id": [
+                    "PKSA-93qv-9n9h-6k6p",
+                    "PKSA-k22t-f949-t9g6",
+                    "PKSA-7qs6-zvnz-h66r"
+                ]
+            }
+        },
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,

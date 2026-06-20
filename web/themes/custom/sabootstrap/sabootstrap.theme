@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * SABootstrap theme functions and preprocess hooks.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function sabootstrap_preprocess_html(&$variables) {
+  try {
+    $is_front = \Drupal::service('path.matcher')->isFrontPage();
+  }
+  catch (\Exception $e) {
+    $is_front = FALSE;
+  }
+  if ($is_front) {
+    $variables['attributes']['class'][] = 'is-front';
+  }
+  if (\Drupal::currentUser()->isAuthenticated()) {
+    $variables['attributes']['class'][] = 'user-logged-in';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function sabootstrap_preprocess_node(&$variables) {
+  /** @var \Drupal\node\NodeInterface $node */
+  $node = $variables['node'];
+  $variables['date'] = \Drupal::service('date.formatter')
+    ->format($node->getCreatedTime(), 'long');
+  $variables['author_name'] = $node->getOwner()->getDisplayName();
+}

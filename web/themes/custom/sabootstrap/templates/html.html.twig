@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * SABootstrap theme: html.html.twig
+ *
+ * Bootstrap 5 CSS is loaded from CDN before Drupal's css-placeholder so that
+ * theme styles in style.css can override Bootstrap without !important.
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  <body{{ attributes.addClass(body_classes) }}>
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+
+    {# Bootstrap JS bundle (includes Popper) #}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc4s9bIOgUxi8T/jzmFiH5/CQ0OPFCnvgAuYObBJHiYE"
+            crossorigin="anonymous"></script>
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>

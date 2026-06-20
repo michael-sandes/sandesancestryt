@@ -1,0 +1,112 @@
+{#
+/**
+ * @file
+ * SABootstrap theme: page.html.twig
+ *
+ * Layout uses Bootstrap 5 grid and navbar components.
+ *
+ * Regions:
+ *   header, header_search, primary_menu, highlighted, breadcrumb,
+ *   content, sidebar_first, footer_first, footer_second, footer_third,
+ *   footer_bottom
+ */
+#}
+
+{# ─── NAVBAR ──────────────────────────────────────────────────────────────── #}
+<nav class="navbar navbar-expand-lg sabootstrap-navbar" role="banner">
+  <div class="container">
+
+    {# Site branding #}
+    <div class="navbar-brand-wrapper">
+      {{ page.header }}
+    </div>
+
+    {# Mobile toggle #}
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#sabootstrap-nav"
+            aria-controls="sabootstrap-nav" aria-expanded="false"
+            aria-label="{{ 'Toggle navigation'|t }}">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    {# Navigation + optional search #}
+    <div class="collapse navbar-collapse" id="sabootstrap-nav">
+      {% if page.primary_menu %}
+        <div class="navbar-nav-wrapper me-auto">
+          {{ page.primary_menu }}
+        </div>
+      {% endif %}
+
+      {% if page.header_search %}
+        <div class="navbar-search ms-auto" role="search" aria-label="{{ 'Site search'|t }}">
+          {{ page.header_search }}
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</nav>
+
+{# ─── MESSAGES / HIGHLIGHTED ──────────────────────────────────────────────── #}
+<div class="region-highlighted-wrapper">
+  <div class="container">
+    {{ page.highlighted }}
+  </div>
+</div>
+
+{# ─── BREADCRUMB ──────────────────────────────────────────────────────────── #}
+{% if page.breadcrumb %}
+  <div class="sabootstrap-breadcrumb py-1">
+    <div class="container">
+      {{ page.breadcrumb }}
+    </div>
+  </div>
+{% endif %}
+
+{# ─── MAIN CONTENT ────────────────────────────────────────────────────────── #}
+<div class="sabootstrap-main py-4">
+  <div class="container">
+    <div class="row g-4">
+
+      <main class="{{ page.sidebar_first ? 'col-lg-8' : 'col-12' }}"
+            id="main-content" role="main">
+        <a id="main-content" tabindex="-1"></a>
+        {{ page.content }}
+      </main>
+
+      {% if page.sidebar_first %}
+        <aside class="col-lg-4" role="complementary" aria-label="{{ 'Sidebar'|t }}">
+          {{ page.sidebar_first }}
+        </aside>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{# ─── FOOTER ──────────────────────────────────────────────────────────────── #}
+<footer class="sabootstrap-footer" role="contentinfo">
+  <div class="container">
+
+    {% if page.footer_first or page.footer_second or page.footer_third %}
+      <div class="row g-4 py-4">
+        {% if page.footer_first %}
+          <div class="col-md-4">{{ page.footer_first }}</div>
+        {% endif %}
+        {% if page.footer_second %}
+          <div class="col-md-4">{{ page.footer_second }}</div>
+        {% endif %}
+        {% if page.footer_third %}
+          <div class="col-md-4">{{ page.footer_third }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if page.footer_bottom %}
+      <div class="footer-bottom border-top py-3">
+        {{ page.footer_bottom }}
+      </div>
+    {% endif %}
+
+  </div>
+</footer>
