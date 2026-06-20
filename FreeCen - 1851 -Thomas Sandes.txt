@@ -1,0 +1,11 @@
+Census Year 	County 	Place 	Civil Parish 	Ecclesiastical Parish 	Piece 	            Enumeration District 	Folio 	Page 	Schedule 	House Number 	House or Street Name
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1851 	        Sussex (SSX) 	Hastings    	St Mary Magdalen    	St Mary Magdalen 	1635 	                5a  	502 	6 	0 	    19 	            Marina
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Surname 	Forenames 	Relationship 	Marital Status 	Sex 	Age 	Occupation 	Birth County 	Birth Place 	Disability 	Notes
+-------------------------------------------------------------------------------------------------------------------------------------
+SANDES 	    Thomas 	    Head 	          M 	         M 	     49 	Magistrate  Ireland      	KER 	         -
+SANDES 	    Elizabeth 	Wife 	          M 	         F 	     44 		                        KER              -
+COLLIS 	    Elizabeth 	Niece 	          - 	         F 	     18 	                        	KER 	         -
+BUTLER 	    Mary Ann 	Servnt 	          M 	         F       33 	Servant 	                IRL              -
+ALLAN 	    Thomas 	    Servnt 	          U 	         M 	     21 	Footman 	GLS 	 Forest Dean
